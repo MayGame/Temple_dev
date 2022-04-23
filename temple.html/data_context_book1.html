@@ -12,7 +12,8 @@
     function receiveMessage(event){
     //     if (event.origin !== "https://temple.maygame.xxx")
     // return;
-    console.log("book1 received",event.data)
+    console.log("book1 received",event.data);
+    event.source.postMessage("reply for "+event.data,"*")
     }
 </script>
 </body>

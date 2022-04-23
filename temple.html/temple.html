@@ -60,6 +60,10 @@ _type:'tmpwip',
 }
     </script>
     <script id="utils">
+    window.addEventListener("message", pmsg, false);
+    function pmsg(event){
+        console.log("processing reply: \n",event.data);
+    }
         function menu_tab(url){
             let f = document.createElement('iframe');
         f.src=url;
