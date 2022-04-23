@@ -51,12 +51,41 @@ var temple_agent={
     manifest:{
 
     },
-    c:context,
+    c:own_context,
+    uf:function(c=temple_agent.c,agent=temple_agent){//unique to this agent
+        var utility_max
+        var unknowns
+        var plain_sum;
+        var normalized_sum;
+        c.important_vars.forEach(e => {
+            c.weights[e]
+        });
+        return
+    },
+    per_variable_utility:function(var_name,agent=temple_agent){
+
+    },
+    var_utility_dict:{
+
+    },
+}
+var own_context={
+_type:'tmpwip',
+weights:{
+
+},
+important_vars:[
+
+],
 
 }
-var context={
-_type:'tmpwip',
+var uf={//per variable...
 
+}
+function calc_utility_of_context_to_agent(context,agent){
+    //there are multiple such functions.. each one has their own
+    return
+    agent.uf(context)
 }
     </script>
     <script id="utils">
