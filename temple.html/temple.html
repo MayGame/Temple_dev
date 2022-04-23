@@ -6,6 +6,18 @@
     <title>Temple</title>
 </head>
 <body>
+    <div>Menu_bar:
+        <button onclick="
+        let f = document.createElement('iframe');
+        f.src='docs_ui_flow.html';
+        let first = idiv.firstChild;
+        if(first)
+        idiv.replaceChild(first,f);
+        else
+        idiv.appendChild(f)
+        ">UI_flow</button>
+    </div>
+    <div id="idiv"></div>
     <h3>Temple:</h3>
     <h3>Other agents</h3>
     <div>
@@ -25,9 +37,12 @@
 <h3>Task:</h3>
 <h4>responsible: <input type="text" name="" id="" placeholder="id" disabled></h4>
 <button>Delegate to</button><input type="text" name="" id="" placeholder="id">
+
     <script>
         
 // source_context_type...
+//useful for partial contexts
+//agents and contexts can be complex or not, deo=pending on the implementation.
 
     </script>
 </body>
