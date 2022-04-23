@@ -7,6 +7,10 @@
 </head>
 <body>
 <script>
+var dict={
+    
+}
+
     window.addEventListener("message", receiveMessage, false);
 
     function receiveMessage(event){
@@ -15,6 +19,9 @@
     console.log("book1 received",event.data);
     event.source.postMessage("reply for "+event.data,"*")
     }
+function response_(data){
+
+}
 </script>
 </body>
 </html>
