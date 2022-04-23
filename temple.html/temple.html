@@ -7,17 +7,21 @@
 </head>
 <body>
     <div>Menu_bar:
-        <button onclick="
-        let f = document.createElement('iframe');
-        f.src='docs_ui_flow.html';
-        let first = idiv.firstChild;
-        if(first)
-        idiv.replaceChild(first,f);
-        else
-        idiv.appendChild(f)
-        ">UI_flow</button>
+        <button onclick="menu_tab('docs_ui_flow.html')">UI_flow</button>
+        <button onclick="menu_tab('data_context_book1.html')">Data book1</button>
     </div>
     <div id="idiv"></div>
+    <div>
+        <h4>Talk to frame:</h4>
+        <input type="text" name="" id="inp_send_m_to_frame">
+        <button onclick="
+        let v = inp_send_m_to_frame.value;
+        console.log('sending',v);
+        let f = window.frames.active_menu_frame;
+        console.log(f);
+        f.postMessage(v,'*');//fixme, when origin is known
+        ">Send</button>
+    </div>
     <h3>Temple:</h3>
     <h3>Other agents</h3>
     <div>
@@ -42,8 +46,31 @@
         
 // source_context_type...
 //useful for partial contexts
-//agents and contexts can be complex or not, deo=pending on the implementation.
+//agents and contexts can be complex or not, depending on the implementation.
+var temple_agent={
+    manifest:{
 
+    },
+    c:context,
+
+}
+var context={
+_type:'tmpwip',
+
+}
+    </script>
+    <script id="utils">
+        function menu_tab(url){
+            let f = document.createElement('iframe');
+        f.src=url;
+        f.name='active_menu_frame';
+        let first = idiv.firstChild;
+        if(first)
+        idiv.removeChild(first);
+        // else
+        idiv.appendChild(f)
+
+        }
     </script>
 </body>
 </html>
