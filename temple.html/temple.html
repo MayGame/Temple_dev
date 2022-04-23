@@ -54,11 +54,12 @@ var temple_agent={
     c:own_context,
     uf:function(c=temple_agent.c,agent=temple_agent){//unique to this agent
         var utility_max
-        var unknowns
+        var unknowns=[]
         var plain_sum;
         var normalized_sum;
         c.important_vars.forEach(e => {
-            c.weights[e]
+            c.per_variable_utility(e)
+            // c.weights1[e]
         });
         return
     },
@@ -71,14 +72,18 @@ var temple_agent={
 }
 var own_context={
 _type:'tmpwip',
-weights:{
+weights1:{//ratio. gets normalized to distribute. total sum
+    JStatusKnown_agent_is_happy:1000,
 
 },
-important_vars:[
+important_vars:['JStatusKnown_agent_is_happy',//another agent, works with the same context, has own weights. 
+'JSafety','JHealth','Us','HumanityIsOk',
 
 ],
 
+
 }
+// var status_known_proxy_context=new Proxy()
 var uf={//per variable...
 
 }
@@ -110,6 +115,7 @@ var data_providers={
         /* 
         find, secure, make safe, heal
         */
+    
     </script>
 </body>
 </html>
