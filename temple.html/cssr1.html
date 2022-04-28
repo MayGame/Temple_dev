@@ -1,0 +1,146 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<P>Cssr tech test :-)</P>
+<div id="cssr1div"></div>
+<div id="div2">
+    div2
+</div>
+<script>
+var render_ = function(){
+
+}
+var ctxt={
+    msg_q:{
+
+    },
+    neuron_instances_f:{
+    M1650970373796cssr_channel_reply:function(actxt){//mock
+        {
+            let {first,rest}=ctxt.parsers_f.one_rest(
+                actxt
+            )
+            
+            console.log('a',actxt);
+            console.log("reply for ",first," : ",rest)
+            let k =  ctxt.msg_q[first];
+            console.log("q:",k[0]);
+            render_context[k[0]]=rest;
+            if(k[1])k[1]()
+        }
+    },
+    M1651030642926render____________:async function(ac){
+    // M1651030869008something_________
+        console.log('renderer',ac);
+        let r = render_context[ac];
+        if(!r){//fixme reactive proxy await (ni)
+            //fallback here
+        }
+        else {
+
+            // ctxt.functions_.render_next_step_callback(r)
+            // ctxt.functions_.render_next_step_callback(ac)
+            div2.innerHTML=r
+
+        }
+        console.log('r',r);
+    },
+    M1651099893264activateFbAsk_____:async function(aId){
+        let a = ctxt.activations_[aId];
+        //activation. [ni,ac]
+        console.log('a: ',a);
+        if(a){//fixme make generic with own context
+            // let c = ctxt.activationsContext[a[1]]
+        //    console.log('nif a0',ctxt.neuron_instances_f[a[0]],'c',c)
+            ctxt.neuron_instances_f[a[0]](a[1])
+            // ctxt.neuron_instances_f[a[0]](c)
+        }
+    }
+},
+activations_:{//[ni,actxt]
+    M1651100196090activation_example:['M1651030642926render____________','M1651030869008something_________'],
+
+},
+activationsContext:{
+    M1651030869008something_________:'<p>something unsafe to render</p>',
+
+},
+functions_:{
+    render_next_step_callback:function(ac){//binding, actuator
+        div2.innerHTML=render_context[ac]
+    },
+    
+}
+    ,
+    parsers_f:{
+        one_rest:function(m){
+        let first = m.slice(0,32)
+        let rest = m.slice(32)
+            return {first,rest}},
+        one_two_rest:function(m){
+        let first = m.slice(0,32)
+        let second = m.slice(32,64)
+        let rest = m.slice(64)
+            return {first,second,rest}}
+    },
+}
+
+    window.addEventListener("message", receiveMessage, false);
+
+    function receiveMessage(event){
+    //     if (event.origin !== "https://temple.maygame.xxx")
+    // return;
+    if(event.data){//fixme validation, neuron activation
+        // let first = event.data.slice(0,32)
+        // let second = event.data.slice(32,64)
+        // let rest = event.data.slice(64)
+        let {first,rest}=ctxt.parsers_f.one_rest(event.data)
+        if(neuron_instances[first])
+        neuron_instances[first](rest)
+        // if(first=="M1650970373796cssr_channel_reply"){
+        //     console.log("reply for ",second," : ",rest)
+        //     let k =  ctxt.msg_q[second];
+        //     console.log("q:",k[0]);
+        //     render_context[k[0]]=rest
+        //     if(k[1])k[1]()
+        // }
+        else{//fixme ni pipeline
+
+    console.log("cssr1 received",event.data);
+    cssr1div.innerHTML=event.data;
+    event.source.postMessage("by cssr1: reply for "+event.data,"*")
+        }
+    }
+    }
+function response_(data){
+
+}
+function text2MJid(text){
+    text = text.replaceAll(/\W/ig,"_")
+    return ("M"+Date.now()+text+"________________________").slice(0,32)
+}
+function rid(){return ('M'+Date.now()+Math.random().toString().replace('.','J')+"BB00BB").substr(0,32);}
+function onInit()
+{
+req_some('M1650970870378basic_mock_stuff__',()=>{let e=render_context.M1650970870378basic_mock_stuff__;cssr1div.innerHTML=e})
+}
+function req_some(some,cb){
+    let r = rid();
+    ctxt.msg_q[r]=[some];
+    if(cb)
+    ctxt.msg_q[r][1]=cb;
+    top.postMessage("M1650970806134render_context_req"+r+some,"*")
+
+}
+window.onload=onInit
+var render_context=ctxt.activationsContext//{}
+// var synced_ctxt=new Proxy
+var neuron_instances=ctxt.neuron_instances_f
+
+</script>
+</body>
+</html>
