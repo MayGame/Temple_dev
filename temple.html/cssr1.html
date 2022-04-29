@@ -39,9 +39,10 @@ var ctxt={
         let r = render_context[ac];
         if(!r){//fixme reactive proxy await (ni)
             //fallback here
+            // ctxt.unsorted.ask_back_channel('M1651137773037sendMeRenderCtxt__'+ac)
+            // req_some(ac)
         }
         else {
-
             // ctxt.functions_.render_next_step_callback(r)
             // ctxt.functions_.render_next_step_callback(ac)
             div2.innerHTML=r
@@ -59,14 +60,45 @@ var ctxt={
             ctxt.neuron_instances_f[a[0]](a[1])
             // ctxt.neuron_instances_f[a[0]](c)
         }
-    }
+        else {
+            let r = rid()
+            ctxt.unsorted.ask_back_channel('M1651137773037sendMeRenderCtxt__'+r+aId)
+            //reg callback:
+            //retry()
+            ctxt.activate_these_once_full_ctxt[r]=()=>ctxt.neuron_instances_f.M1651099893264activateFbAsk_____(aId)
+        }
+    },
+    M1651217281491ni_button_clicked_:function(id){
+        console.log('btn clicked',id);
+        ctxt.button_associated_activations[id].forEach(a => {
+            console.log('btn clicked activate',a);
+            ctxt.neuron_instances_f.M1651099893264activateFbAsk_____(a)
+        });
+    },
+
+},
+activate_these_once_full_ctxt:{//goals? might have utility trigger
+
+},
+unsorted:{
+ask_back_channel:function(m){
+    console.log('ask back triggered:',m);
+    top.postMessage(m,'*')
+}
+},
+global_resolve_by_guid:{
+
 },
 activations_:{//[ni,actxt]
     M1651100196090activation_example:['M1651030642926render____________','M1651030869008something_________'],
-
+    M1651217581324render_another____:['M1651030642926render____________','M1651217600199something_else____'],
+    
+    //fixme: goals, way to get there, .. as basic features
+    
 },
 activationsContext:{
-    M1651030869008something_________:'<p>something unsafe to render</p>',
+    M1651030869008something_________:'<p>something unsafe to render<button id="M1651203913077button001_________">Button</button></p>',
+    M1651217600199something_else____:'<p>something else. not very safe either<button id="M1651203913077button001_________">Button</button></p>',
 
 },
 functions_:{
@@ -74,6 +106,9 @@ functions_:{
         div2.innerHTML=render_context[ac]
     },
     
+},
+button_associated_activations:{//activation contexts for button channels
+    M1651203913077button001_________:['M1651217581324render_another____'],
 }
     ,
     parsers_f:{
@@ -90,6 +125,7 @@ functions_:{
 }
 
     window.addEventListener("message", receiveMessage, false);
+window.addEventListener("click", click_handler, false);
 
     function receiveMessage(event){
     //     if (event.origin !== "https://temple.maygame.xxx")
@@ -118,6 +154,17 @@ functions_:{
     }
 function response_(data){
 
+}
+function click_handler(e){
+    let id = e.target.id;
+    console.log(id)
+    console.log(e.target.tagName)
+    if(e.target.tagName=='BUTTON')
+    resolve_related_activations_by_id(e.target.id)
+}
+function resolve_related_activations_by_id(id){
+    console.log('resolving_id',id);
+    ctxt.neuron_instances_f.M1651217281491ni_button_clicked_(id)
 }
 function text2MJid(text){
     text = text.replaceAll(/\W/ig,"_")
