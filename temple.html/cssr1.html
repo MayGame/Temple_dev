@@ -6,6 +6,7 @@
 </head>
 <body>
 <P>Cssr tech test :-)</P>
+<!-- (server side rendering on the client) -->
 <div id="cssr1div"></div>
 <div id="div2">
     div2
@@ -34,7 +35,6 @@ var ctxt={
         }
     },
     M1651030642926render____________:async function(ac){
-    // M1651030869008something_________
         console.log('renderer',ac);
         let r = render_context[ac];
         if(!r){//fixme reactive proxy await (ni)
@@ -80,6 +80,10 @@ var ctxt={
 activate_these_once_full_ctxt:{//goals? might have utility trigger
 
 },
+fallbacks_id:{
+neuron_instances_f:'M1651230972271ni_fallback_ni____',
+
+},
 unsorted:{
 ask_back_channel:function(m){
     console.log('ask back triggered:',m);
@@ -105,7 +109,6 @@ functions_:{
     render_next_step_callback:function(ac){//binding, actuator
         div2.innerHTML=render_context[ac]
     },
-    
 },
 button_associated_activations:{//activation contexts for button channels
     M1651203913077button001_________:['M1651217581324render_another____'],
@@ -123,6 +126,8 @@ button_associated_activations:{//activation contexts for button channels
             return {first,second,rest}}
     },
 }
+
+var pctxt//complex proxy context,
 
     window.addEventListener("message", receiveMessage, false);
 window.addEventListener("click", click_handler, false);
@@ -157,10 +162,10 @@ function response_(data){
 }
 function click_handler(e){
     let id = e.target.id;
-    console.log(id)
-    console.log(e.target.tagName)
+    console.log(id);
+    console.log(e.target.tagName);
     if(e.target.tagName=='BUTTON')
-    resolve_related_activations_by_id(e.target.id)
+    resolve_related_activations_by_id(e.target.id);
 }
 function resolve_related_activations_by_id(id){
     console.log('resolving_id',id);
@@ -180,8 +185,7 @@ function req_some(some,cb){
     ctxt.msg_q[r]=[some];
     if(cb)
     ctxt.msg_q[r][1]=cb;
-    top.postMessage("M1650970806134render_context_req"+r+some,"*")
-
+    top.postMessage("M1650970806134render_context_req"+r+some,"*");
 }
 window.onload=onInit
 var render_context=ctxt.activationsContext//{}
