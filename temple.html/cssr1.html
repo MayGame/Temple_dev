@@ -16,10 +16,11 @@ var render_ = function(){
 
 }
 var ctxt={
-    msg_q:{
+_ctxt_this:ctxt,
+msg_q:{
 
     },
-    neuron_instances_f:{
+neuron_instances_f:{
     M1650970373796cssr_channel_reply:function(actxt){//mock
         {
             let {first,rest}=ctxt.parsers_f.one_rest(
@@ -75,11 +76,37 @@ var ctxt={
             ctxt.neuron_instances_f.M1651099893264activateFbAsk_____(a)
         });
     },
+    M1651230972271ni_fallback_ni____:function(k,c=ctxt,interaction_id){
+        if(!interaction_id)
+        {
+            interaction_id = rid();
+
+        }
+        c.activate_these_once_full_ctxt[interaction_id]=()=>{
+
+        }
+        let ni = c.neuron_instances[k];
+        // let func =  //todo fixme
+    }
 
 },
+agents:{
+
+    //might be default context, can have their own activation strategy
+    //id:[context, ]
+},
+
+
 activate_these_once_full_ctxt:{//goals? might have utility trigger
 
 },
+neuron_instances:{//[guid,neuron, context]
+    M1651284266282ni_names_sampl____:['M1651284388251global_id_________','M1651284604330neuron_log_var_ab_','_context_this']
+},
+neuron_types_:{//id:[parser, af, signature]
+    M1651284604330neuron_log_var_ab_:[]
+},
+
 fallbacks_id:{
 neuron_instances_f:'M1651230972271ni_fallback_ni____',
 
@@ -91,7 +118,7 @@ ask_back_channel:function(m){
 }
 },
 global_resolve_by_guid:{
-
+    M1651230972271ni_fallback_ni____:['neuron_instances_f',''],
 },
 activations_:{//[ni,actxt]
     M1651100196090activation_example:['M1651030642926render____________','M1651030869008something_________'],
@@ -114,7 +141,7 @@ button_associated_activations:{//activation contexts for button channels
     M1651203913077button001_________:['M1651217581324render_another____'],
 }
     ,
-    parsers_f:{
+parsers_f:{
         one_rest:function(m){
         let first = m.slice(0,32)
         let rest = m.slice(32)
