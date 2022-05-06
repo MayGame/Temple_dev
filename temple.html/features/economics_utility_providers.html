@@ -35,7 +35,29 @@ function calc_price(iType,cID){
 }
 /**
  * Alg:
+ * get customer ID or make one
+ * per agent of interest, get related classifiers, applicable to that customer
+ * Utility of having certain stuff with a chain-proof of utility
  * 
+ * Concepts:
+ * There are other agents of interest, who might want our customer to have certain things
+ * Customer has a few classifiers applied to him, or in the most simple case, just one - their ID
+ * There are rules to check ...
+ * 
+ * Example: We want certain person to be able to get a bread for free in one of a few shops.
+ * These shops have a data entry, a way to identify that person. 
+ * E.g. loyalty cards linked to their phone number.
+ * Then it's as follows:
+ * person shows their ID, system acquires all the additional IDs for each of utility providers, pulls linked data
+ * 
+ * then we can get classifiers for each individual good,
+ * calculate total utility of that person having it as our utility of these agents being happy and value of that action to them.
+ * (Contest mode - optional): one with bigger utility of having it gets it. Alternatively, they can increase it by giving us something that we need 
+ * (e.g. money). That's how the price gets calculated in the end.
+ * 
+ * fixme
+ * 
+ *  
  */
 </script>
 </body>
