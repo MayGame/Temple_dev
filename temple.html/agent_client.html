@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Client</title>
     <script src="agent_client.js"></script>
+    <script src="simple_client.js"></script>
 </head>
 <body>
 <script>
@@ -42,7 +43,15 @@ async function pmsg(event){
         console.log(first,second,rest,res);
         event.source.postMessage('M1650970373796cssr_channel_reply'+second+res,"*")
         }
+        else if(first==''){
+            //second-messageID to reply
+
+        }
     }
+var c2={}
+c2.neuron_instances_f={
+
+}
 function render(v){//
     //
 
@@ -82,11 +91,19 @@ idiv.removeChild(first);
 idiv.appendChild(f);
 }
 window.onload=init;
+let lf2p = async ()=>{
+    let res = c.F.WordsRead().get('F2P');
+    res.onsuccess=function(){
+    console.log("F2P: ",res.result);
+    // new AsyncFunction(res.result)();
+    }}
+    
 </script>
+<script src="agent.js"></script>
 <script>
-var client_agent={
+// var client_agent={
 
-}
+// }
 
 function text2MJid(text){
     text = text.replaceAll(/\W/ig,"_")

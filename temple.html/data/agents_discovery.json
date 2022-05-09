@@ -1,0 +1,7 @@
+{
+    "agent_list":["agent1","agent2"],
+    "agent1":{
+        "way_to_contact":{}
+    },
+    "agent2":{}
+}
