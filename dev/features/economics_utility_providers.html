@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>econ</title>
+</head>
+<body>
+    <h4>Shop integration scheme:</h4>
+<p>There are multiple utility providers, along with id and other data providers.</p>
+<p></p>
+<p>Exchnge for currency before trading</p>
+<p></p>
+<H3>Shop example:</H3>
+<table>
+    <tr><td>Good:</td><td>Price in some currency:</td></tr>
+    <button>Add to cart</button>
+</table>
+<script>
+context={
+'self_id':[]
+}
+classifiers={}
+customer_id;
+utility_providers=['self_id']//list of agents that we care about (or those who can pay)
+cart={}
+function add_to_cart(item_id){
+    let item_type
+    let end_price=calc_price(item_type,customer_id)
+}
+function calc_price(iType,cID){
+    utility_providers.forEach(provider => {
+        // context.
+    });
+}
+/**
+ * Alg:
+ * get customer ID or make one
+ * per agent of interest, get related classifiers, applicable to that customer
+ * Utility of having certain stuff with a chain-proof of utility
+ * 
+ * Concepts:
+ * There are other agents of interest, who might want our customer to have certain things
+ * Customer has a few classifiers applied to him, or in the most simple case, just one - their ID
+ * There are rules to check ...
+ * 
+ * Example: We want certain person to be able to get a bread for free in one of a few shops.
+ * These shops have a data entry, a way to identify that person. 
+ * E.g. loyalty cards linked to their phone number.
+ * Then it's as follows:
+ * person shows their ID, system acquires all the additional IDs for each of utility providers, pulls linked data
+ * 
+ * then we can get classifiers for each individual good,
+ * calculate total utility of that person having it as our utility of these agents being happy and value of that action to them.
+ * (Contest mode - optional): one with bigger utility of having it gets it. Alternatively, they can increase it by giving us something that we need 
+ * (e.g. money). That's how the price gets calculated in the end.
+ * 
+ * fixme
+ * 
+ *  
+ */
+//knowing utility of certain variables to others you can prove your utility to them (that's what it is about)
+
+//Agent can calc utilities: of resource,of an action/episode, utility of the goal achieved, of another agent being happy.
+//pmuch the same 
+//total utility of the state (of a context). stuff can have negative utility (fears)
+//same for delta
+
+//reflex: actions with certain utility are triggered when possible
+
+//Summary: each shop is an agent making decision, based on 
+
+
+
+</script>
+</body>
+</html>

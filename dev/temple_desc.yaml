@@ -1,0 +1,11 @@
+Agent. Has a goal - goddess to be happy (as possible).
+Invests in it, helps those helping it.
+
+arch-wise:
+  agent, context interfaces;
+    static data as one of these
+
+initially temple agent is represented with a static data within iframes. can talk to the client
+#  some channels can rely on multiple data sources, (failprooving)
+
+

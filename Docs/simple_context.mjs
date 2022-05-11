@@ -49,11 +49,18 @@ bich1.field1//
 * 2. pipe <- 
 */
 
-g2={
+g2={//guid can be treated as address. 
+    //Map1: A(B) is C. where  C is a guid (resolved within a global context)
+    //A is a A is a relation. c.maps[A][1] is its map. e.g. map_A_name. c.maps[A][0] is entry's guid
+    //there are maps for guid, value...
+    //_g.C contains value
+    //Map2: 
     AC_id:[]
 }
 c2={_g:g2,
-maps:{},
+maps:{
+    
+},
 
 }
 
