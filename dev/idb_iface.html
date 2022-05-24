@@ -26,7 +26,7 @@ let res = c.F.WordsRead().get(arr_ed_id_1.value);let s=''; res.onsuccess=functio
 arr_ed_list.value=s;}">Load</button>
 <textarea name="" id="arr_ed_list" cols="30" rows="10" placeholder="Keys. add an ID and submit"></textarea>
 <button onclick="
-let arr = arr_ed_list.split(' ');
+let arr = (arr_ed_list.value+'').split(' ');
 c.F.WordsWrite(arr_ed_id_1.value,arr);
 ">submit</button>
 <script>
