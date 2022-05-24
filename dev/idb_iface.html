@@ -19,13 +19,10 @@
 <p>keys, space divided</p>
 <input type="text" name="" id="arr_ed_id_1" placeholder="id of array to edit">
 <button onclick="
-console.log(arr_ed_id_1.value);
 let res = c.F.WordsRead().get(arr_ed_id_1.value);let s=''; res.onsuccess=function(){
-console.log(res);
-    res.forEach(e => {
+    res.result.forEach(e => {
     s+=e+' ';
 });
-console.log(s);
 arr_ed_list.value=s;}">Load</button>
 <textarea name="" id="arr_ed_list" cols="30" rows="10" placeholder="Keys. add an ID and submit"></textarea>
 <button onclick="
