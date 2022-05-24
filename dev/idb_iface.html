@@ -10,11 +10,12 @@
 <h4>id gen</h4>
 <input type="text" name="" id="id_here_1" placeholder="grab ur id from here">
 <input type="text" name="" id="name_to_base_1" onchange="id_here_1.value=text2MJid(this.value)">
-<button onclick="id_here_1.value=rid()">rid</button>
 <h4>Idb add text entry</h4>
 <p>key from above</p>
 <textarea name="" id="idb_value_1" cols="30" rows="10" placeholder="value to add"></textarea>
-<button onclick="c.F.WordsWrite(id_here_1.value,idb_value_1.value)">add</button>
+<button onclick="c.F.WordsWrite(id_here_1.value,idb_value_1.value)">add</button><button onclick="id_here_1.value=rid()">rid</button><button onclick="let res = c.F.WordsRead().get(id_here_1.value);res.onsuccess=()=>{
+    idb_value_1.value=res.result;
+}">load text</button>
 <h4>Edit array</h4>
 <p>keys, space divided</p>
 <input type="text" name="" id="arr_ed_id_1" placeholder="id of array to edit">
