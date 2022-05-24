@@ -52,6 +52,130 @@ var c2={}
 c2.neuron_instances_f={
 
 }
+var g2={}
+c2._g=g2;
+
+var mockup_proxy_g2_idb_channel=new Proxy(g2,{
+    get:function(_,k){
+        if(g2[k])
+        return g2[k];
+        else{
+            let res = c.F.WordsRead().get(k)
+    res.onsuccess=function(){
+        if(res.result)
+        g2[k]=res.result
+        else console.log('g2 proxy, idb key not found: ',k );
+    }//end onsuccess
+    return undefined
+    }//end else
+    },
+    set:function(_,k,v){
+        g2[k]=v;
+        c.F.WordsWrite(k,v);
+
+    },
+})
+var g3={}
+var g3_init_one_to_save_as_word_l1_chunk_immutable_primal_base={
+
+
+}
+var g4_todo={//init_chunk
+    M1652686670564c_maps_list_______:['M1652677291018todo______________','M1652689880993subgoals__________'],
+    M1652677291018todo______________:[//contains direct text entries (their id)
+    'M1652677518316primal_g__________','M1652677570135proxied_g_________','M1652677711692primal_agent______','M1652688522199quests_2layer_idb_',
+    ],
+    M1652677518316primal_g__________:``,
+    M1652677570135proxied_g_________:`Channels, neuron instances, that can be used as g for next level agents`,
+    M1652677711692primal_agent______:``,
+    M1652688522199quests_2layer_idb_:``,
+    //become better
+    //defenition -> vars to check -> value to the task ->
+    // 'value_of' channel
+
+}
+var g5_primal_neurons={
+__:['M1652690295524af_text___________'],
+M1652690295524af_text___________:[],
+M16526910105730J9358541288071129:``,//
+M16526910329950J0044392230921002:``,
+
+}
+var c5_target_state={//todo - make it like this from global ^
+activations_optimized:{},
+
+}
+var c5_neurons_primal
+function beh_test1(g,c){//put here cases u wanna test
+//gets value related to key
+
+//gets id of that entry
+
+//
+
+
+}
+function vc_from_g(g){//direct value maps
+    let under_c={};
+    let c = new Proxy(under_c,{
+        get:function(_,k1){
+            return new Proxy(under_c[k1],{
+                set:function(_,k2,v2){
+                let ks1 = Object.keys(under_c)
+                under_c[k1][k2]=v2
+                let ks2 = Object.keys(under_c[k1])
+                // console.log('g',g)
+                // console.log('k1',k1)
+                // console.log('k2',k2)
+                // console.log('ks1',ks1)
+                // console.log('ks2',ks2)
+                // console.log()
+            g[k1]=ks2;
+            g[k2]=v2;
+        }
+            })
+        }
+    });
+    function init(){
+        g.M1652686670564c_maps_list_______.forEach(k=>{
+            under_c[k]={};
+            console.log('under key',k);
+            g[k].forEach(k2=>{
+                under_c[k][k2]=g[k2]
+            })
+        })
+    }
+    init()
+    // return under_c;
+    return c;
+}
+var c4=vc_from_g(g4_todo);
+console.log('c4, M1652677570135proxied_g_________',c4.M1652677291018todo______________.M1652677570135proxied_g_________)//direct value
+var mockup_proxy_g3_idb_channel=new Proxy(g2,{
+    /**
+     * quadruples are stored directly in idb words as l0
+     * along with primal data (c2 is built on it)
+     * l1 chunks can 
+     */
+    get:function(_,k){
+        if(g2[k])
+        return g2[k];
+        else{
+            let res = c.F.WordsRead().get(k)
+    res.onsuccess=function(){
+        if(res.result)
+        g2[k]=res.result
+        else console.log('g2 proxy, idb key not found: ',k );
+    }//end onsuccess
+    return undefined
+    }//end else
+    },
+    set:function(_,k,v){
+        g2[k]=v;
+        c.F.WordsWrite(k,v);
+
+    },
+})
 function render(v){//
     //
 
@@ -97,6 +221,7 @@ let lf2p = async ()=>{
     console.log("F2P: ",res.result);
     // new AsyncFunction(res.result)();
     }}
+
 let checkList_populate=function(){
     /**
      * 1. Add, browse entries
@@ -113,13 +238,61 @@ let checkList_populate=function(){
      * 10.
      * 
      */
-    c.F.WordsWrite('k','v');
-    let base = {
+    // Object.keys(base).forEach(k=>{
 
-    };
-    Object.keys(base).forEach(k=>{
+    //     // c.F.WordsWrite(e,e)
 
-        // c.F.WordsWrite(e,e)
+    // })
+    mockup_proxy_g2_idb_channel.tasks;
+    setTimeout(()=>{
+        if(mockup_proxy_g2_idb_channel.tasks)
+    {console.log(mockup_proxy_g2_idb_channel.tasks)}
+    else {console.log('no tasks');
+    mockup_proxy_g2_idb_channel.tasks=['M1652452272053Add_entries_______','M1652452333691Get_related_info__']
+    mockup_proxy_g2_idb_channel.M1652515786067AddEntriesText____='Value. Simple text entry. Add enttries';
+    //mockup_proxy_g2_idb_channel
+    // mockup_proxy_g2_idb_channel.
+    //todo: a(b), description(M1652452272053Add_entries_______) is M1652515786067AddEntriesText____
+    /**
+     * c.maps.A_value_map[B] returns value of C
+     * c.maps.A_id_map[B] returns guid of C
+     * 
+     * g_entry:
+     * c_maps_proxy:
+     * 
+     */
+    // mockup_proxy_g2_idb_channel
+}//end else
+},100)
+}
+
+let add_task = function(task_name,ctxt=c2){
+    /**
+     * simple version: Proxy context, synced to idb via some channel.
+     * list_of_tasks[]
+     * 
+     * 
+     * 
+     */
+    async function update_task_ids(new_ID){
+        mockup_proxy_g2_idb_channel.tasks
+        mockup_proxy_g2_idb_channel[new_ID]=''
+    }
+    update_task_ids()
+    c.F.WordsWrite()
+}
+function browse_tasks_mockup(k=undefined){
+    if(k){
+        console.log("you browse ",k,"related stuff:")
+        // mockup_proxy_g2_idb_channel
+        //g2 synced already
+        //time to play with c2:
+        //maps:
+        //[k]
+    }
+    else
+    mockup_proxy_g2_idb_channel.tasks.forEach(t=>{
+        console.log('task ',t);
 
     })
 }
@@ -132,7 +305,8 @@ let checkList_populate=function(){
 
 function text2MJid(text){
     text = text.replaceAll(/\W/ig,"_")
-    return ("M"+Date.now()+text+"________________________").slice(0,32)
+    return ("M"+Date.now()+text+"________________________").slice(0,32);
+
 }
 function rid(){return ('M'+Date.now()+Math.random().toString().replace('.','J')+"BB00BB").substr(0,32);}
 </script>

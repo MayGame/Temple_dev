@@ -1,0 +1,168 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bs layers</title>
+</head>
+<body>
+    <label for="_ctxt_1">Context</label><input type="text" name="" id="_ctxt_1" value="o1">
+    <h4>A(B(C))...</h4>
+    <p></p>
+    <input type="text" name="" id="_rel_id_1" placeholder=" rel ID">
+    <button onclick="//btn show
+    let id=_rel_id_1.value;
+    let ctxt=self[_ctxt_1.value];
+    let res=undefined;
+    res=2;
+    if(res)
+    {
+        _result1.value='Result:'+res
+    }
+    else
+    {
+        _result1.value=''
+    }
+    console.log(
+        _result1.value
+    );
+    ">Show</button><br>
+    <textarea name="result" id="_result1" cols="30" rows="10" placeholder="resulting equation"></textarea>
+<h4>Add..</h4>
+<p>Id:</p>
+<input type="text" name="" id="">
+<p>A:</p>
+<input type="text" name="" id="">
+<p>B:</p>
+<input type="text" name="" id="">
+<h4>Get A(B)</h4>
+<input type="text" name="" id="" placeholder="A" value="op">
+<input type="text" name="" id="" placeholder="B" value=""><br>
+<button>Get ID</button>
+<button>Get Value</button>
+<br>
+<!-- Always has ID, but sometimes it's ignored -->
+<!-- Is stored as ...  -->
+<!-- 
+get ID:
+    channel_get_ID:
+        replies:
+
+    
+Get value: 
+Get related rels (ways to resolve here)
+
+
+ -->
+<input type="text" name="" id="result_id_2" placeholder="ID">
+<input type="text" name="" id="result_value_2" placeholder="Value">
+<script>
+//#region layer1 static object. 
+var l1_c1={
+    text:{
+        function_name_1:[``]
+    }
+}
+var l1_c2={
+    text:{
+        function_name_2:[]
+    },
+    
+}
+var l2_c1={
+    funcs_:{},
+    funcs_proxy_from_text:new Proxy(l1_c1,{
+        get:function(_,k){
+            let b_c=l1_c1//backup c
+            if(l2_c1.funcs_[k])
+            return l2_c1.funcs_[k];
+            else b_c.text
+        },
+        set:function(){},
+    })
+}
+var o1={
+functions:{
+log2:function(){console.log('l1 log2');}
+},//end functions
+activations:{
+
+},
+optimized_activations:{
+test_activation1:function(){
+    var ni
+    var context
+    var ac_context
+    console.log("test_activation1");
+
+}
+},
+channels:{
+main:function(ch_name,arg_name){
+    // o1.
+},
+opta:function(aname){
+o1.optimized_activations[aname]()
+},
+}
+}
+
+//_______________________________________
+o1.functions.log2()
+//_______________________________________
+//#endregion 
+//#region layer2 simple agent using layer1
+var agent2={
+    channels:{
+        a_b:function(a,b){
+
+        }
+    }
+}
+//#endregion 
+//#region layerX one with unknown complexity yet. does what's needed:
+// varchannels_x_mock={}
+var channels_x=o1.channels
+function test_interfaceX(){
+//direct activate. neuron instance <- activation context (not its ID)
+// channels_x.
+//activate_name_channel_test no_return
+// channels_x.main('activate','activation_name');
+
+//direct call_channel
+channels_x.opta('test_activation1')
+
+//action, value, context delta, consequences, episode
+//utility of predicted result context for the chain of episodes (each one applied to the previous result context)
+// channels_x.a_b('consequences','action1')
+// console.log('test_x');
+
+//async channels ... get(a(b))->render1/render2 (markup/console)
+//extending arguments one by one:
+//some_var_x and render_screen/render_console
+}
+test_interfaceX()
+//#endregion 
+//#region layer3
+//#endregion 
+//#region layer4
+//#endregion 
+//#region layer5
+//#endregion 
+//#region layer6
+//#endregion 
+//#region layer2
+//#endregion 
+//#region layer2
+//#endregion 
+//#region layer2
+//#endregion 
+//#region layer2
+//#endregion 
+//#region layer2
+//#endregion 
+
+
+</script>
+</body>
+</html>

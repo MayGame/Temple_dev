@@ -44,7 +44,7 @@ bich1.field1//
 /**
  * E2:A(C), where C is A(B):
 * 1. pipe <- _resolveWord_ AC_id:
-*  here, AC_id is a followin  
+*  here, AC_id is a followin  -y ]\
 *  if(maps[c] exists) -> assuming it
 * 2. pipe <- 
 */
