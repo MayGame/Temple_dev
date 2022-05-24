@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simpl idb</title>
+    <script src="simple_client.js"></script>
+</head>
+<body>
+<h4>id gen</h4>
+<input type="text" name="" id="id_here_1" placeholder="grab ur id from here">
+<input type="text" name="" id="name_to_base_1" onchange="id_here_1.value=text2MJid(this.value)">
+<button onclick="id_here_1.value=rid()">rid</button>
+<h4>Idb add text entry</h4>
+<p>key from above</p>
+<textarea name="" id="idb_value_1" cols="30" rows="10" placeholder="value to add"></textarea>
+<button onclick="c.F.WordsWrite(id_here_1.value,idb_value_1.value)">add</button>
+<script>
+
+
+
+function text2MJid(text){
+    text = text.replaceAll(/\W/ig,"_")
+    return ("M"+Date.now()+text+"________________________").slice(0,32);
+
+}
+function rid(){return ('M'+Date.now()+Math.random().toString().replace('.','J')+"BB00BB").substr(0,32);}
+
+</script>  
+</body>
+</html>
