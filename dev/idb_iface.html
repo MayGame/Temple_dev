@@ -9,7 +9,7 @@
 <body>
 <h4>id gen</h4>
 <input type="text" name="" id="id_here_1" placeholder="grab ur id from here">
-<input type="text" name="" id="name_to_base_1" onchange="id_here_1.value=text2MJid(this.value)">
+<input type="text" name="" id="name_to_base_1" onchange="id_here_1.value=text2MJid(this.value)" placeholder="text from here to ID">
 <h4>Idb add text entry</h4>
 <p>key from above</p>
 <textarea name="" id="idb_value_1" cols="30" rows="10" placeholder="value to add"></textarea>
@@ -30,6 +30,19 @@ arr_ed_list.value=s;}">Load</button>
 let arr = (arr_ed_list.value+'').split(' ');
 c.F.WordsWrite(arr_ed_id_1.value,arr);
 ">submit</button>
+<h4>A(B) </h4>
+<p>Add link. </p>
+<input type="text" placeholder="relation">
+<input type="text" placeholder="argument">
+<input type="text" placeholder="result id">
+<input type="text" placeholder="">
+<h4>Json:</h4>
+<input type="text" name="" id="id_input_json_1">
+<textarea name="" id="json_textarea_1" cols="30" rows="10"></textarea>
+<button 
+let res = c.F.WordsRead().get(id_input_json_1.value);let s=undefined; res.onsuccess=function(){
+    s=JSON.stringify(res.result)
+json_textarea1.value=s;}>load</button>
 <script>
 
 
