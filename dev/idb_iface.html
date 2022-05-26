@@ -30,12 +30,24 @@ arr_ed_list.value=s;}">Load</button>
 let arr = (arr_ed_list.value+'').split(' ');
 c.F.WordsWrite(arr_ed_id_1.value,arr);
 ">submit</button>
-<h4>A(B) </h4>
+<h4>A(B) <button onclick="//console log related doc entry:
+let doc_id = 'M1653573004907ab_iface_doc_entry';
+let res = c.F.WordsRead().get(doc_id.value); res.onsuccess=function(){
+   console.log(res.result);
+   alert(res.result);
+}
+    ">?</button></h4>
 <p>Add link. </p>
-<input type="text" placeholder="relation">
-<input type="text" placeholder="argument">
-<input type="text" placeholder="result id">
-<input type="text" placeholder="">
+<input type="text" placeholder="relation " id="ab_relation_1">
+<input type="text" placeholder="argument" id="ab_argument_1">
+<input type="text" placeholder="result id" id="ab_result_id_1">
+<input type="text" placeholder="list name for that relation goes here">
+<button onclick="
+
+">Load list_name</button>
+<button></button>
+<button></button>
+<button></button>
 <h4>Json:</h4>
 <input type="text" name="" id="id_input_json_1" placeholder="id to load"><br>
 <textarea name="" id="json_textarea_1" cols="30" rows="10" placeholder="json representation"></textarea>
