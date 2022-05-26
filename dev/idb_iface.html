@@ -40,8 +40,9 @@ c.F.WordsWrite(arr_ed_id_1.value,arr);
 <input type="text" name="" id="id_input_json_1" placeholder="id to load">
 <textarea name="" id="json_textarea_1" cols="30" rows="10" placeholder="json representation"></textarea>
 <button 
-let res = c.F.WordsRead().get(id_input_json_1.value);let s=undefined; res.onsuccess=function(){
-    s=JSON.stringify(res.result)
+let res = c.F.WordsRead().get(id_input_json_1.value); res.onsuccess=function(){
+    let s=JSON.stringify(res.result);
+    console.log(s,res.result)
 json_textarea_1.value=s;}>load</button>
 <script>
 
