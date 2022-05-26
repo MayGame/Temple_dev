@@ -37,12 +37,12 @@ c.F.WordsWrite(arr_ed_id_1.value,arr);
 <input type="text" placeholder="result id">
 <input type="text" placeholder="">
 <h4>Json:</h4>
-<input type="text" name="" id="id_input_json_1">
-<textarea name="" id="json_textarea_1" cols="30" rows="10"></textarea>
+<input type="text" name="" id="id_input_json_1" placeholder="id to load">
+<textarea name="" id="json_textarea_1" cols="30" rows="10" placeholder="json representation"></textarea>
 <button 
 let res = c.F.WordsRead().get(id_input_json_1.value);let s=undefined; res.onsuccess=function(){
     s=JSON.stringify(res.result)
-json_textarea1.value=s;}>load</button>
+json_textarea_1.value=s;}>load</button>
 <script>
 
 
