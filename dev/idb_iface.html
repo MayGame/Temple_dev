@@ -100,9 +100,16 @@ function m_handler_mockup(msg){
 }
 function activate(agent, neuron, context, activation_context){
 agent[neuron](activation_context)
+// agent[neuron](activation_context)
 }
 
-var simplest1={M1653833811194log_channel_______:console.log}
+var simplest1={M1653833811194log_channel_______:console.log,//neuron instance with 0 ctxt
+    M1653838456987mock_c_log________:function(name){
+        let c={'1':'One'};
+        console.log(c[name]);
+    }
+}
+
 </script>
 </body>
 </html>
