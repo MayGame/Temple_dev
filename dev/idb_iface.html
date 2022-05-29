@@ -96,7 +96,13 @@ function m_handler_mockup(msg){
     let rest=msg.slice(32);
     //activate
     console.log('activation mockup',first,rest);
+    activate(simplest1,first,undefined,rest)
 }
+function activate(agent, neuron, context, activation_context){
+agent[neuron](activation_context)
+}
+
+var simplest1={M1653833811194log_channel_______:console.log}
 </script>
 </body>
 </html>
