@@ -24,14 +24,19 @@ let res = c.F.WordsRead().get(arr_ed_id_1.value);let s=''; res.onsuccess=functio
     res.result.forEach(e => {
     s+=e+' ';
 });
-arr_ed_list.value=s;}">Load</button>
+arr_ed_list.value=s;}">Load</button><br>
 <textarea name="" id="arr_ed_list" cols="30" rows="10" placeholder="Keys. add an ID and submit"></textarea>
 <button onclick="
 let arr = (arr_ed_list.value+'').split(' ');
 c.F.WordsWrite(arr_ed_id_1.value,arr);
 ">submit</button>
-<h4>A(B) <button onclick="//console log related doc entry:
+<h4 id="M16535733892990J1263046776042302">A(B) <button onclick="//console log related doc entry:
+let parent_id=this.parent.id;
+console.log('parent id: ', parent_id);
+console.log('doc entrys id for it is: ', parent_id);//fixme. a(b) stuff..
+
 let doc_id = 'M1653573004907ab_iface_doc_entry';
+//swap ^ with resolve doc(M16535733892990J1263046776042302)
 let res = c.F.WordsRead().get(doc_id); res.onsuccess=function(){
    console.log(res.result);
    alert(res.result);
@@ -57,6 +62,10 @@ let res = c.F.WordsRead().get(id_input_json_1.value); res.onsuccess=function(){
     console.log(s,res.result)
 json_textarea_1.value=s;}">load</button>
 <button onclick="c.F.WordsWrite(id_input_json_1.value,JSON.parse(json_textarea_1.value))">save</button>
+<h4>Init <button onclick="
+    init()
+    ">!</button></h4>
+    <input type="text" placeholder="seq id" value="M1653833661392initMsgs__________" id="seq_id_1">
 <script>
 
 
@@ -68,5 +77,26 @@ function text2MJid(text){
 function rid(){return ('M'+Date.now()+Math.random().toString().replace('.','J')+"BB00BB").substr(0,32);}
 
 </script>  
+<script>
+function init(){
+    let res = c.F.WordsRead().get(seq_id_1.value); res.onsuccess=function(){
+console.log('seq id: ',seq_id_1.value,res.result);
+res.result.forEach(msg_id=>{
+let res2 = c.F.WordsRead().get(msg_id);
+res2.onsuccess=function(){
+    console.log("inner res:",res2.result);
+    m_handler_mockup(res2.result)
+}
+})
+}
+}
+function m_handler_mockup(msg){
+    //parse:
+    let first=msg.slice(0,32);
+    let rest=msg.slice(32);
+    //activate
+    console.log('activation mockup',first,rest);
+}
+</script>
 </body>
 </html>
