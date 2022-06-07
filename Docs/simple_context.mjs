@@ -50,7 +50,13 @@ bich1.field1//
 */
 
 g2={
-    AC_id:[]
+    // A_rel - activation message stored. abstract id
+    //optimized_func(A_rel):idOptA.
+    //g.idOptA - func to call directly 
+    //
+    AC_id:['A_rel','C_arg'],
+    C_arg:['A_rel','B_arg'],
+    C_arg_value_id:[]
 }
 c2={_g:g2,
 maps:{},
