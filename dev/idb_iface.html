@@ -1,0 +1,193 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simpl idb</title>
+    <script src="simple_client.js"></script>
+</head>
+<body>
+<h4>id gen</h4>
+<input type="text" name="" id="id_here_1" placeholder="grab ur id from here">
+<input type="text" name="" id="name_to_base_1" onchange="id_here_1.value=text2MJid(this.value)" placeholder="text from here to ID">
+<h4>Idb add text entry</h4>
+<p>key from above</p>
+<textarea name="" id="idb_value_1" cols="30" rows="10" placeholder="value to add"></textarea>
+<button onclick="c.F.WordsWrite(id_here_1.value,idb_value_1.value)">add</button><button onclick="id_here_1.value=rid()">rid</button><button onclick="let res = c.F.WordsRead().get(id_here_1.value);res.onsuccess=()=>{
+    idb_value_1.value=res.result;
+}">load text</button>
+<h4>Edit array</h4>
+<p>keys, space divided</p>
+<input type="text" name="" id="arr_ed_id_1" placeholder="id of array to edit">
+<button onclick="
+let res = c.F.WordsRead().get(arr_ed_id_1.value);let s=''; res.onsuccess=function(){
+    res.result.forEach(e => {
+    s+=e+' ';
+});
+arr_ed_list.value=s;}">Load</button><br>
+<textarea name="" id="arr_ed_list" cols="30" rows="10" placeholder="Keys. add an ID and submit"></textarea>
+<button onclick="
+let arr = (arr_ed_list.value+'').split(' ');
+c.F.WordsWrite(arr_ed_id_1.value,arr);
+">submit</button>
+<h4 id="M16535733892990J1263046776042302">A(B) <button onclick="//console log related doc entry:
+let parent_id=this.parent.id;
+console.log('parent id: ', parent_id);
+console.log('doc entrys id for it is: ', parent_id);//fixme. a(b) stuff..
+
+let doc_id = 'M1653573004907ab_iface_doc_entry';
+//swap ^ with resolve doc(M16535733892990J1263046776042302)
+let res = c.F.WordsRead().get(doc_id); res.onsuccess=function(){
+   console.log(res.result);
+   alert(res.result);
+}
+    ">?</button></h4>
+<p>Add link. </p>
+<input type="text" placeholder="relation " id="ab_relation_1">
+<input type="text" placeholder="argument" id="ab_argument_1">
+<input type="text" placeholder="result id" id="ab_result_id_1">
+<input type="text" placeholder="list name for that relation goes here">
+<button onclick="
+
+">Load list_name</button>
+<button></button>
+<button></button>
+<button></button>
+<!-- <p>You can resolve entrie's value, sometimes ID (might not have one)</p> -->
+<p></p>
+<h4>Json:</h4>
+<input type="text" name="" id="id_input_json_1" placeholder="id to load"><br>
+<textarea name="" id="json_textarea_1" cols="30" rows="10" placeholder="json representation"></textarea>
+<button onclick="
+let res = c.F.WordsRead().get(id_input_json_1.value); res.onsuccess=function(){
+    let s=JSON.stringify(res.result);
+    console.log(s,res.result)
+json_textarea_1.value=s;}">load</button>
+<button onclick="c.F.WordsWrite(id_input_json_1.value,JSON.parse(json_textarea_1.value))">save</button>
+<h4>Init <button onclick="
+    init()
+    ">!</button></h4>
+    <input type="text" placeholder="seq id" value="M1653833661392initMsgs__________" id="seq_id_1">
+<script>
+
+
+function text2MJid(text){
+    text = text.replaceAll(/\W/ig,"_")
+    return ("M"+Date.now()+text+"________________________").slice(0,32);
+
+}
+function rid(){return ('M'+Date.now()+Math.random().toString().replace('.','J')+"BB00BB").substr(0,32);}
+
+</script>  
+<script>
+function init(){
+    let res = c.F.WordsRead().get(seq_id_1.value); res.onsuccess=function(){
+console.log('seq id: ',seq_id_1.value,res.result);
+res.result.forEach(msg_id=>{
+let res2 = c.F.WordsRead().get(msg_id);
+res2.onsuccess=function(){
+    console.log("inner res:",res2.result);
+    m_handler_mockup(res2.result)
+}
+})
+}
+}
+function m_handler_mockup(msg){
+    //parse:
+    let first=msg.slice(0,32);
+    let rest=msg.slice(32);
+    //activate
+    console.log('activation mockup',first,rest);
+    activate(simplest1,first,undefined,rest)
+}
+function activate(agent, neuron, context, activation_context){
+agent[neuron](activation_context)
+// agent[neuron](activation_context)
+}
+
+var simplest1={M1653833811194log_channel_______:console.log,//neuron instance with 0 ctxt
+    M1653838456987mock_c_log________:function(name){
+        let c={'1':'One'};
+        console.log(c[name]);
+    },
+}
+var complex1={
+
+}
+//todo spell agent ~= guild
+var ctxts={}
+function cm_test(){
+    let mid = rid();
+    function reply_here(){  }
+}
+var cm_ctxt={
+    to_reply:{},
+    c1:{
+        M1654443635411C_________________:`C. M1654443584933relA______________(M1654443601176B_________________)`,
+        
+    }
+}
+function ctxt_manager(descriptor_request){
+    let msg_id;
+    let reply_channel;
+    
+    // send_back_right_object()
+    //mock with return for now:
+    
+    return c;
+}
+
+//#region qa bs
+// First protocol:
+// Vocab one: Introduce words, starting from underlying ones, send as a batch:
+// text[A_relation]
+// B
+// c=A[B]. Making sure every word is known before it can be used.
+
+// second protocol: 
+// ask questions:
+
+
+// Hybrid (main one):
+// first batch introduces a way to ask questions, reply channel and some other necessary vars
+function batch_text_p_msg_gen(word, ctxt){
+    let text=``;
+    let c = ctxt;
+    function add(what){
+        text+=what;
+    }
+let deps = get_related(word)
+// deps.forEach(dep=>{get_recursively...})
+if(is_leaf())//no deps
+{
+    add()
+}
+}
+
+var batch_sample=``
+function qa_p(){
+
+}
+// M1654443584933relA______________
+//M1654443601176B_________________
+//M1654443584933relA______________(M1654443601176B_________________) = M1654443635411C_________________ //ID
+// c.M1654444403958rel_a_channel_____.M1654443601176B_________________=
+// c.M1654443635411C_________________
+//
+//M1654443635411C_________________ 
+//c.M1654443635411C_________________ //should return same as c.M1654443584933relA______________M1654443601176B_________________
+
+//#endregion 
+//#region AB
+/**
+ * 
+ * Scenarios:
+ * 1. call function_version(f1)
+ * 2. Reply this message with text_version(f1)
+ *  2.1. Reply_channel
+ * 
+ *
+//#endregion 
+</script>
+</body>
+</html>

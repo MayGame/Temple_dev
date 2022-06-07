@@ -1,0 +1,8 @@
+{
+    // "servers":[],//knowledge base interfaces
+    //drop-ins by role
+    "roles":["role1","role2"],
+    "role1":["server1"],
+    "role2":["server1"],
+    "server_1":"..."
+}

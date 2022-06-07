@@ -1,0 +1,26 @@
+evolution:
+  1:
+    preset readonly static object.
+    obj[key] returns value
+
+  2:
+    simple channel, fixed function proxy
+
+  3:
+    activation proxy
+
+  4:
+    context builder,
+
+
+
+use cases:
+  third party data:
+  distributed_ui:
+  context merging:
+    activation resolves as a context to 'poj'
+
+  idb request with medium agent:
+    ask another client for something stored in idb. 
+
+  # some_id - task_find(solution_for_the_problem(me_not_having(one)))

@@ -44,22 +44,31 @@ bich1.field1//
 /**
  * E2:A(C), where C is A(B):
 * 1. pipe <- _resolveWord_ AC_id:
-*  here, AC_id is a followin  
+*  here, AC_id is a followin  -y ]\
 *  if(maps[c] exists) -> assuming it
 * 2. pipe <- 
 */
 
-g2={
-    // A_rel - activation message stored. abstract id
-    //optimized_func(A_rel):idOptA.
-    //g.idOptA - func to call directly 
-    //
-    AC_id:['A_rel','C_arg'],
-    C_arg:['A_rel','B_arg'],
-    C_arg_value_id:[]
+// g2={
+//     // A_rel - activation message stored. abstract id
+//     //optimized_func(A_rel):idOptA.
+//     //g.idOptA - func to call directly 
+//     //
+//     AC_id:['A_rel','C_arg'],
+//     C_arg:['A_rel','B_arg'],
+//     C_arg_value_id:[]
+g2={//guid can be treated as address. 
+    //Map1: A(B) is C. where  C is a guid (resolved within a global context)
+    //A is a A is a relation. c.maps[A][1] is its map. e.g. map_A_name. c.maps[A][0] is entry's guid
+    //there are maps for guid, value...
+    //_g.C contains value
+    //Map2: 
+    AC_id:[]
 }
 c2={_g:g2,
-maps:{},
+maps:{
+    
+},
 
 }
 
