@@ -53,6 +53,8 @@ let res = c.F.WordsRead().get(doc_id); res.onsuccess=function(){
 <button></button>
 <button></button>
 <button></button>
+<!-- <p>You can resolve entrie's value, sometimes ID (might not have one)</p> -->
+<p></p>
 <h4>Json:</h4>
 <input type="text" name="" id="id_input_json_1" placeholder="id to load"><br>
 <textarea name="" id="json_textarea_1" cols="30" rows="10" placeholder="json representation"></textarea>
@@ -107,9 +109,85 @@ var simplest1={M1653833811194log_channel_______:console.log,//neuron instance wi
     M1653838456987mock_c_log________:function(name){
         let c={'1':'One'};
         console.log(c[name]);
+    },
+}
+var complex1={
+
+}
+//todo spell agent ~= guild
+var ctxts={}
+function cm_test(){
+    let mid = rid();
+    function reply_here(){  }
+}
+var cm_ctxt={
+    to_reply:{},
+    c1:{
+        M1654443635411C_________________:`C. M1654443584933relA______________(M1654443601176B_________________)`,
+        
     }
 }
+function ctxt_manager(descriptor_request){
+    let msg_id;
+    let reply_channel;
+    
+    // send_back_right_object()
+    //mock with return for now:
+    
+    return c;
+}
 
+//#region qa bs
+// First protocol:
+// Vocab one: Introduce words, starting from underlying ones, send as a batch:
+// text[A_relation]
+// B
+// c=A[B]. Making sure every word is known before it can be used.
+
+// second protocol: 
+// ask questions:
+
+
+// Hybrid (main one):
+// first batch introduces a way to ask questions, reply channel and some other necessary vars
+function batch_text_p_msg_gen(word, ctxt){
+    let text=``;
+    let c = ctxt;
+    function add(what){
+        text+=what;
+    }
+let deps = get_related(word)
+// deps.forEach(dep=>{get_recursively...})
+if(is_leaf())//no deps
+{
+    add()
+}
+}
+
+var batch_sample=``
+function qa_p(){
+
+}
+// M1654443584933relA______________
+//M1654443601176B_________________
+//M1654443584933relA______________(M1654443601176B_________________) = M1654443635411C_________________ //ID
+// c.M1654444403958rel_a_channel_____.M1654443601176B_________________=
+// c.M1654443635411C_________________
+//
+//M1654443635411C_________________ 
+//c.M1654443635411C_________________ //should return same as c.M1654443584933relA______________M1654443601176B_________________
+
+//#endregion 
+//#region AB
+/**
+ * 
+ * Scenarios:
+ * 1. call function_version(f1)
+ * 2. Reply this message with text_version(f1)
+ *  2.1. Reply_channel
+ * 
+ *
+//#endregion 
 </script>
 </body>
 </html>
