@@ -1,0 +1,186 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wishlist</title>
+    <script src="simple_client.js"></script>
+</head>
+<body>
+    <h4>BS</h4>
+    <button onclick="show_meta()">Show meta</button>
+<p>1. User's wishlist. </p>
+<p>Add a wish (id, text)</p>
+<p>Store in IDB, add to the list of user wishes </p>
+<input type="text" id="MJID1">
+<input type="text" onchange="MJID1.value=text2MJid(this.value)">
+
+
+<p></p>
+browse...
+relations for this id
+problems it creates, cosequences.. 
+<p></p>
+<p><button onclick="
+    let res = c.F.WordsRead().get();let s=''; res.onsuccess=function(){
+    res.result.forEach(e => {
+    s+=e+' ';
+    ">Init + log</button></p>
+<script>
+
+
+    function text2MJid(text){
+        text = text.replaceAll(/\W/ig,"_")
+        return ("M"+Date.now()+text+"________________________").slice(0,32);
+    
+    }
+    function rid(){return ('M'+Date.now()+Math.random().toString().replace('.','J')+"BB00BB").substr(0,32);}
+    
+    </script>  
+    <script>
+    function init(){
+        let res = c.F.WordsRead().get(seq_id_1.value); res.onsuccess=function(){
+    console.log('seq id: ',seq_id_1.value,res.result);
+    res.result.forEach(msg_id=>{
+    let res2 = c.F.WordsRead().get(msg_id);
+    res2.onsuccess=function(){
+        console.log("inner res:",res2.result);
+        m_handler_mockup(res2.result)
+    }
+    })
+    }
+    }
+    function m_handler_mockup(msg){
+        //parse:
+        let first=msg.slice(0,32);
+        let rest=msg.slice(32);
+        //activate
+        console.log('activation mockup',first,rest);
+        activate(simplest1,first,undefined,rest)
+    }
+    function activate(agent, neuron, context, activation_context){
+    agent[neuron](activation_context)
+    // agent[neuron](activation_context)
+    }
+    
+    var simplest1={M1653833811194log_channel_______:console.log,//neuron instance with 0 ctxt
+        M1653838456987mock_c_log________:function(name){
+            let c={'1':'One'};
+            console.log(c[name]);
+        },
+    }
+    var complex1={
+    
+    }
+    //todo spell agent ~= guild
+    var ctxts={}
+    function cm_test(){
+        let mid = rid();
+        function reply_here(){  }
+    }
+    var cm_ctxt={
+        to_reply:{},
+        c1:{
+            M1654443635411C_________________:`C. M1654443584933relA______________(M1654443601176B_________________)`,
+            
+        }
+    }
+    function ctxt_manager(descriptor_request){
+        let msg_id;
+        let reply_channel;
+        
+        // send_back_right_object()
+        //mock with return for now:
+        
+        return c;
+    }
+    
+    //#region qa bs
+    // First protocol:
+    // Vocab one: Introduce words, starting from underlying ones, send as a batch:
+    // text[A_relation]
+    // B
+    // c=A[B]. Making sure every word is known before it can be used.
+    
+    // second protocol: 
+    // ask questions:
+    
+    
+    // Hybrid (main one):
+    // first batch introduces a way to ask questions, reply channel and some other necessary vars
+    function batch_text_p_msg_gen(word, ctxt){
+        let text=``;
+        let c = ctxt;
+        function add(what){
+            text+=what;
+        }
+    let deps = get_related(word)
+    // deps.forEach(dep=>{get_recursively...})
+    if(is_leaf())//no deps
+    {
+        add()
+    }
+    }
+    
+    var batch_sample=``
+    function qa_p(){
+    
+    }
+    // M1654443584933relA______________
+    //M1654443601176B_________________
+    //M1654443584933relA______________(M1654443601176B_________________) = M1654443635411C_________________ //ID
+    // c.M1654444403958rel_a_channel_____.M1654443601176B_________________=
+    // c.M1654443635411C_________________
+    //
+    //M1654443635411C_________________ 
+    //c.M1654443635411C_________________ //should return same as c.M1654443584933relA______________M1654443601176B_________________
+    
+    //#endregion 
+    //#region AB
+    /**
+     * 
+     * Scenarios:
+     * 1. call function_version(f1)
+     * 2. Reply this message with text_version(f1)
+     *  2.1. Reply_channel
+     * 
+     */
+    //#endregion 
+    </script>
+<script>
+var this_C={
+// "guid_"+"user_": //
+// guid
+ } 
+var l1={}//library
+var context_manager={
+    get:function(){},
+    rel_map_1:{
+
+    },
+    curr_c:this_C,
+
+}
+l1.init_rel_map=function(){
+    c.WordsRead().get()
+}
+l1.a_b_where= function (a,b,where_put,rel_map){//gets from idb. puts to where_put, resolves wih rel_map
+     let list_id_a=rel_map[a]
+     let res = c.WordsRead().get()
+ }
+l1.a_b_where_preset1=function(){//
+
+}
+function show_meta(){
+    console.log("this user")
+    console.log("Their Wishlist's ID")
+    console.log("Its contents")
+    console.log("")
+    console.log("")
+    console.log("")
+    console.log("")
+
+}
+</script>
+</body>
+</html>
