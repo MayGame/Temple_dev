@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spiritual</title>
+<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gun/sea.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/gun/nts.js"></script>
+</head>
+<body>
+    <!-- <p>In case I die</p> -->
+    <button onclick="trigger_listener()">This!</button>
+    <p>Params:</p>
+    <label for="">delay</label><input type="number" name="delay_number"  placeholder="delay" onfocus="this.value=delay" onchange="delay=this.value"><br>
+    <label for="">Current option:</label><input type="text" id="curr_opt" disabled>
+
+<p></p>
+<div id="options_div"></div>
+<div id=""></div>
+<script>
+
+// var gun = new Gun({localStorage:false, peers:["https://gun-manhattan.herokuapp.com/gun"]});
+var gun = new Gun({localStorage:false, peers:["https://mg-gun.herokuapp.com/gun"]});
+var gb = gun.get("M1654768040559gb_root___________").get("M1654768070090btn_clicked_______")
+
+function trigger_listener(){
+    console.log(options_array[i])
+}
+var options_array=['yes','no','alphabet'];
+var delay=700;
+// function loop_through(){
+var len = options_array.length;
+var pause=false
+let i=0;//current index
+function next(){
+
+if(!pause)
+{
+    // console.log(e)
+    if(i<len-1)i++;
+    else i=0;
+    e=options_array[i]
+    curr_opt.value=e;
+setTimeout(() => {
+    next()
+}, delay);
+
+}}
+next()
+
+function rid(){return ('M'+Date.now()+Math.random().toString().replace('.','J')+"BB00BB").substr(0,32);}
+var last_id="";
+gb.on(e=>{
+if(e!=last_id){//not handled
+trigger_listener();
+}
+})
+
+</script> 
+</body>
+</html>

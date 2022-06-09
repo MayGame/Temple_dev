@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>wishlist</title>
-    <script src="simple_client.js"></script>
+    <script src="../simple_client.js"></script>
 </head>
 <body>
     <h4>BS</h4>
@@ -22,10 +22,12 @@ relations for this id
 problems it creates, cosequences.. 
 <p></p>
 <p><button onclick="
-    let res = c.F.WordsRead().get();let s=''; res.onsuccess=function(){
-    res.result.forEach(e => {
-    s+=e+' ';
+    // let res = c.F.WordsRead().get();let s=''; res.onsuccess=function(){
+    // res.result.forEach(e => {
+    // s+=e+' ';
+    l1.init_rel_map();
     ">Init + log</button></p>
+    <button onclick="l1.runtest1()">Run test</button>
 <script>
 
 
@@ -162,14 +164,24 @@ var context_manager={
 
 }
 l1.init_rel_map=function(){
-    c.WordsRead().get()
+    c.WordsRead().get("M1654677855237rel_map_1_________")
 }
 l1.a_b_where= function (a,b,where_put,rel_map){//gets from idb. puts to where_put, resolves wih rel_map
-     let list_id_a=rel_map[a]
+     let list_id_a=rel_map[a];
+     //
      let res = c.WordsRead().get()
  }
 l1.a_b_where_preset1=function(){//
 
+}
+l1.runtest1=function(){
+    var proxyCB=new Proxy({},{
+        set:function(_,k,v){
+
+        }
+    });//reply catcher
+    //gets value(text(description(problem)))
+    
 }
 function show_meta(){
     console.log("this user")

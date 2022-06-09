@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gun btn</title>
+<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gun/sea.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/gun/nts.js"></script>
+</head>
+<button onclick="clk()">Clck</button>
+<body>
+<script>
+
+// var gun = new Gun({localStorage:false, peers:["https://gun-manhattan.herokuapp.com/gun"]});
+var gun = new Gun({localStorage:false, peers:["https://mg-gun.herokuapp.com/gun"]});
+var gb = gun.get("M1654768040559gb_root___________").get("M1654768070090btn_clicked_______")
+function clk(){
+gb.put(rid())
+}
+function rid(){return ('M'+Date.now()+Math.random().toString().replace('.','J')+"BB00BB").substr(0,32);}
+
+</script>
+</body>
+</html>
