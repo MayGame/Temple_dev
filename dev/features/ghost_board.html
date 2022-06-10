@@ -18,11 +18,16 @@
 <p></p>
 <div id="options_div"></div>
 <div id=""></div>
-<script>
+<h4>Chat samples</h4>
+<p><div>M1654771411142console_log_______JJJ</div><button onclick="chat(this.parent.firstChild.innerText)">Send!</button></p>
+<p><div>M1654845867800alert_channel_____JJJ</div><button onclick="chat(this.parent.firstChild.innerText)">Send!</button></p>
+<p><input type="text" value="M1654771411142console_log_______JJJ"><button onclick="chat(this.parent.firstChild.value)">Send!</button></p>
 
+<script>
 // var gun = new Gun({localStorage:false, peers:["https://gun-manhattan.herokuapp.com/gun"]});
 var gun = new Gun({localStorage:false, peers:["https://mg-gun.herokuapp.com/gun"]});
 var gb = gun.get("M1654768040559gb_root___________").get("M1654768070090btn_clicked_______")
+var gateway = gun.get("M1654768040559gb_root___________").get("M1654768070090btn_clicked_______")
 
 function trigger_listener(){
     console.log(options_array[i])
@@ -48,14 +53,65 @@ setTimeout(() => {
 
 }}
 next()
-
+function chat(m){
+    some_c.channels_.general_channel(m);
+}
 function rid(){return ('M'+Date.now()+Math.random().toString().replace('.','J')+"BB00BB").substr(0,32);}
 var last_id="";
 gb.on(e=>{
 if(e!=last_id){//not handled
-trigger_listener();
+// trigger_listener();
+// some_c.neuron_instances_.M1654770252151gb_trigger________(e)
+some_c.channels_.general_channel(''+e)
+
 }
 })
+var some_c={
+    neuron_instances_:{
+        M1654770252151gb_trigger________:function(msg){
+
+        },
+
+    },
+    activations_:{
+        M1654769809286clck______________:function(){
+            trigger_listener();
+        }
+    },
+    option_sets:{},
+    channels_:{
+        general_channel:function(msg){
+            // function parse(m){
+                let m = msg;
+                let first = m.slice(0,32);
+                let rest = m.slice(32)
+            //     return (first,rest)
+            // }
+            some_c.channels_[first](rest)
+            
+        },
+        M1654771411142console_log_______:console.log,
+        M1654845867800alert_channel_____:alert,
+        M1654847000234cond_action_______:function(m){
+            let a = some_c.gctxt.M1654771196948current_action____;
+            some_c.channels_[a](m);
+
+        },
+        M1654850885830activation_channel:function(m){
+            let first = m.slice(0,32);
+            let rest = m.slice(32);
+            some_c.channels_[first];
+        },
+        M1654851062982activation_channel:function(aname){}
+
+    },
+    maps:{
+
+    },
+    gctxt:{
+        M1654771196948current_action____:'M1654771411142console_log_______'
+    }
+}
 
 </script> 
 </body>
