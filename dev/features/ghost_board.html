@@ -22,7 +22,8 @@
 <p><input type="text" size="69" value="M1654771411142console_log_______JJJ"><button onclick="chat(this.parentElement.firstChild.value)">Send!</button></p>
 <p><input type="text" size="69" value="M1654845867800alert_channel_____JJJ"><button onclick="chat(this.parentElement.firstChild.value)">Send!</button></p>
 <p><input type="text" size="69" value="M1654851062982activation_channelM1654769809286clck______________"><button onclick="chat(this.parentElement.firstChild.value)">Send!</button></p>
-<p><input type="text" size="69" value="M1654850885830activation_channelM1654855883536logJJActivTuple___"><button onclick="chat(this.parentElement.firstChild.value)">Send!</button></p>
+<p><input type="text" size="69" value="M1654856034232activate_tuple_chaM1654855883536logJJActivTuple___"><button onclick="chat(this.parentElement.firstChild.value)">Send!</button></p>
+<!-- <p><input type="text" size="69" value=""><button onclick="chat(this.parentElement.firstChild.value)">Send!</button></p> -->
 
 <script>
 // var gun = new Gun({localStorage:false, peers:["https://gun-manhattan.herokuapp.com/gun"]});
@@ -63,7 +64,7 @@ gb.on(e=>{
 if(e!=last_id){//not handled
 // trigger_listener();
 // some_c.neuron_instances_.M1654770252151gb_trigger________(e)
-some_c.channels_.general_channel(''+e)
+some_c.channels_.general_channel('M16548670393600J660129628935918B'+e)
 
 }
 })
@@ -119,7 +120,13 @@ var some_c={
         },
         M1654851062982activation_channel:function(aname){
             some_c.activations_[aname]();
-        }
+        },
+        M16548670393600J660129628935918B:function(m){//this on gun msg
+            let first = m.slice(0,32);
+            let rest = m.slice(32);
+            some_c.channels_.M1654771411142console_log_______(first,rest)
+            some_c.activations_.M1654769809286clck______________();
+        },
 
     },
     maps:{
