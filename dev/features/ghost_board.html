@@ -22,6 +22,7 @@
 <p><input type="text" size="69" value="M1654771411142console_log_______JJJ"><button onclick="chat(this.parentElement.firstChild.value)">Send!</button></p>
 <p><input type="text" size="69" value="M1654845867800alert_channel_____JJJ"><button onclick="chat(this.parentElement.firstChild.value)">Send!</button></p>
 <p><input type="text" size="69" value="M1654851062982activation_channelM1654769809286clck______________"><button onclick="chat(this.parentElement.firstChild.value)">Send!</button></p>
+<p><input type="text" size="69" value="M1654850885830activation_channelM1654855883536logJJActivTuple___"><button onclick="chat(this.parentElement.firstChild.value)">Send!</button></p>
 
 <script>
 // var gun = new Gun({localStorage:false, peers:["https://gun-manhattan.herokuapp.com/gun"]});
@@ -73,11 +74,18 @@ var some_c={
         },
 
     },
+    activation_tuples:{
+        M1654855883536logJJActivTuple___:['M1654845867800alert_channel_____','M16548565288470J4551839671100357']
+    },
     activations_:{
         M1654769809286clck______________:function(){
             trigger_listener();
         }
     },
+    activation_contexts_:{
+        M16548565288470J4551839671100357:'JJ'
+    },
+
     option_sets:{},
     channels_:{
         general_channel:function(msg){
@@ -91,19 +99,26 @@ var some_c={
             
         },
         M1654771411142console_log_______:console.log,
-        M1654845867800alert_channel_____:alert,
+        M1654845867800alert_channel_____:(m)=>alert(m),
         M1654847000234cond_action_______:function(m){
             let a = some_c.gctxt.M1654771196948current_action____;
             some_c.channels_[a](m);
 
         },
+        M1654856034232activate_tuple_cha:function(tname){
+            let a = some_c.activation_tuples[tname];
+            some_c.channels_[tname[0]](some_c.activation_contexts_[tname[1]])
+        },
         M1654850885830activation_channel:function(m){
             let first = m.slice(0,32);
             let rest = m.slice(32);
+            let aname=(first,rest)
             some_c.channels_[first];
+            //sends aname[1] to aname[0] channel;
+            // some_c.activation_tuples
         },
         M1654851062982activation_channel:function(aname){
-
+            some_c.activations_[aname]();
         }
 
     },
