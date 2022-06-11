@@ -69,6 +69,9 @@ some_c.channels_.general_channel('M16548670393600J660129628935918B'+e)
 }
 })
 var some_c={
+    function_texts:{
+        M1654869053819rid_text__________:`return ('M'+Date.now()+Math.random().toString().replace('.','J')+"BB00BB").substr(0,32);`,
+    },
     neuron_instances_:{
         M1654770252151gb_trigger________:function(msg){
 
@@ -88,7 +91,10 @@ var some_c={
     },
 
     option_sets:{},
-    channels_:{
+    channel_builder_text_:{
+
+    },
+    channels_:{//no return. can put stuff into other channels instead ;; if u want return - use biDirChannels (later)
         general_channel:function(msg){
             // function parse(m){
                 let m = msg;
@@ -106,9 +112,34 @@ var some_c={
             some_c.channels_[a](m);
 
         },
+        M1654944364548ab_put__to_channel:function(a_b_channel){
+            let a=a_b_channel.slice(0,32);
+            let b=a_b_channel.slice(32,64);
+            let chaname=a_b_channel.slice(64,96);
+            let aRelB;//todo ;; B can be a context
+            some_c.channels_[chaname](aRelB);
+        },
+        M1654950143782buildCFromDesc____:function(where_descriptor){
+            let where=where_descriptor.slice(0,32);
+            let rest=where_descriptor.slice(32);
+            let cname=rest.slice(0,32);
+            rest=rest.slice(32)
+            /*
+            
+            */
+            some_c.ctxts_[cname]={}
+            //1 by 1 adding vars to it
+ 
+        },
+        M1654944597695ufVar2Another_____:function(one_another_channel){
+            //puts the name of utility function to call to get utility of one variable to another one into channel
+            let a=a_b_channel.slice(0,32);
+            let b=a_b_channel.slice(32,64);
+            let chaname=a_b_channel.slice(64,96);
+        },
         M1654856034232activate_tuple_cha:function(tname){
             let a = some_c.activation_tuples[tname];
-            some_c.channels_[tname[0]](some_c.activation_contexts_[tname[1]])
+            some_c.channels_[tname[0]](some_c.activation_contexts_[tname[1]]);
         },
         M1654850885830activation_channel:function(m){
             let first = m.slice(0,32);
@@ -133,9 +164,11 @@ var some_c={
 
     },
     gctxt:{
-        M1654771196948current_action____:'M1654771411142console_log_______'
+        M1654771196948current_action____:'M1654771411142console_log_______',
     }
 }
+// classifiers:
+
 
 </script> 
 </body>
