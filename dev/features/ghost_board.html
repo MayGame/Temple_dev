@@ -4,9 +4,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spiritual</title>
-<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+<script src="gun.js"></script>
+<script src="sea.js"></script> 
+<script src="nts.js"></script>
+<script src="pin.Js"></script>
+<script src="meme.Js"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gun/sea.js"></script> 
-<script src="https://cdn.jsdelivr.net/npm/gun/nts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gun/nts.js"></script> -->
 </head>
 <body>
     <!-- <p>In case I die</p> -->
@@ -23,14 +29,83 @@
 <p><input type="text" size="69" value="M1654845867800alert_channel_____JJJ"><button onclick="chat(this.parentElement.firstChild.value)">Send!</button></p>
 <p><input type="text" size="69" value="M1654851062982activation_channelM1654769809286clck______________"><button onclick="chat(this.parentElement.firstChild.value)">Send!</button></p>
 <p><input type="text" size="69" value="M1654856034232activate_tuple_chaM1654855883536logJJActivTuple___"><button onclick="chat(this.parentElement.firstChild.value)">Send!</button></p>
-<!-- <p><input type="text" size="69" value=""><button onclick="chat(this.parentElement.firstChild.value)">Send!</button></p> -->
+<p><input type="text" size="69" value="M1655043079619callableFromTextChM1654869053819rid_text__________"><button onclick="chat(this.parentElement.firstChild.value)">Send!</button></p>
+<p><input type="text" size="69" value="M1654944364548ab_put__to_channelM1655042683126rel_text2func_____M1654869053819rid_text__________M1654771411142console_log_______"><button onclick="chat(this.parentElement.firstChild.value)">Send!</button></p>
+<!-- <p>This one above should print to console var, callable version of rid. Can be addressed (found in some_c.gctxt)
+    
+</p> -->
+<p><textarea cols="69" rows="10">M1654950143782buildCFromDesc____
 
+</textarea><button onclick="chat(this.parentElement.firstChild.value)">Send!</button></p>
+<p><textarea cols="69" rows="10"></textarea><button onclick="chat(this.parentElement.firstChild.value)">Send!</button></p>
+<!-- <p><input type="text" size="69" value=""><button onclick="chat(this.parentElement.firstChild.value)">Send!</button></p> -->
+<p>________________________________________________________________________________________________________________-</p>
+<p><input type="text" size="69" value="M1655200478482fetchFromIdbToChanM1622519980405clairdlwlrMayJesCAM1654845867800alert_channel_____"><button onclick="chat(this.parentElement.firstChild.value)">Send!</button></p>
+<h3>Agents:</h3>
+<p>1. Task agent:</p>
+<p></p>
+<h4>Quest driven development</h4>
+<p>Agent, representing yourself:</p>
+<input type="text" name="" id="" disabled value="">
+selected agent
+their knowledge
+their goals
+way to contact
+
+<h4>Create agent:</h4>
+<p><input type="text" name="" id="" placeholder="ID"></p>
+<p><input type="text" name="" id="" placeholder="description"></p>
+<p></p>
+<h4>Edit agent</h4>
+<p>ID from above is used.</p>
+<p><button onclick="chat('M1656323488210log_agents________')">Browse</button></p>
 <script>
 // var gun = new Gun({localStorage:false, peers:["https://gun-manhattan.herokuapp.com/gun"]});
 var gun = new Gun({localStorage:false, peers:["https://mg-gun.herokuapp.com/gun"]});
 var gb = gun.get("M1654768040559gb_root___________").get("M1654768070090btn_clicked_______")
 var gateway = gun.get("M1654768040559gb_root___________").get("M1654768070090btn_clicked_______")
+var gunch1 = gun.get("M1655649150991gunch1____________").get("M1655649114206gunch1_main_______")
+gunch1.on(e=>{
+    console.log("gunch1 on,",e);
+    communication_agent.out_interface.channels.M1655649090419gunch1_main_______(e)
+})
+var communication_agent={
+    out_interface:{
+        channels:{
+            M1655649090419gunch1_main_______:function(e){
+                console.log(`M1655649090419gunch1_main_______`,e);
+                let first = e.slice(0,32);
+                let rest = e.slice(32);
+                communication_agent.out_interface.channels[first](rest)
+            },
+            M1655649619812introduce_new_chan:function(msg){
+                console.log("New channel.",msg);
+                let name = msg.slice(0,32);
+                let type = msg.slice(32,64)
+                let associated_agent = msg.slice(32,64)
+                //following messages go there.
+                //session can be created this way (has to) or you can continue, just by writing to existing ones
+                communication_agent.out_interface.context.active_sessions[name]
+            },
+            M1655816557232new_gunch_________:function(name){
+                gun.get("M1655649150991gunch1____________")
+            }
+        },
+        context:{
+            active_sessions:{
+                sample:{//not quadruples, aggregated object for convinience
+                    agent_id:'',
+                    // in_channel:sample_in,
+                    // reply_channel:sample_out
+                }
+            },/**
+todo: time consumers minimization... 
 
+            */
+
+        }
+    }
+}
 function trigger_listener(){
     console.log(options_array[i])
 }
@@ -58,7 +133,7 @@ next()
 function chat(m){
     some_c.channels_.general_channel(m);
 }
-function rid(){return ('M'+Date.now()+Math.random().toString().replace('.','J')+"BB00BB").substr(0,32);}
+function rid(){return ('M'+Date.now()+Math.random().toString().replace('.','J')+"BB00BB").substr(0,32);};
 var last_id="";
 gb.on(e=>{
 if(e!=last_id){//not handled
@@ -69,6 +144,16 @@ some_c.channels_.general_channel('M16548670393600J660129628935918B'+e)
 }
 })
 var some_c={
+    weights_:{//relationships between agents. should be accessable as a vector. (or just a simple mapping for now:)
+        one_to_another:{//todo: flat it out (un-nest?)
+
+        },
+
+
+    },
+    map_fallbacks:{//call these when not found (fixme todo) used with some 
+
+    },
     function_texts:{
         M1654869053819rid_text__________:`return ('M'+Date.now()+Math.random().toString().replace('.','J')+"BB00BB").substr(0,32);`,
     },
@@ -94,6 +179,12 @@ var some_c={
     channel_builder_text_:{
 
     },
+    callable_classic_functions:{
+        M1655036031250testAgentUF_______:function(ctxt){
+            return 0;
+        },
+        // M1655042828625rid_callable______:'' add first. build from rid_text (see map)
+    },
     channels_:{//no return. can put stuff into other channels instead ;; if u want return - use biDirChannels (later)
         general_channel:function(msg){
             // function parse(m){
@@ -102,8 +193,52 @@ var some_c={
                 let rest = m.slice(32)
             //     return (first,rest)
             // }
+            // console.log(first,rest,some_c.channels_[first]);
             some_c.channels_[first](rest)
             
+        },
+        M1656323488210log_agents________:function(){
+            //get list of agents
+            // onreply put into log of this one
+            let list_keeper;
+            list_keeper.
+                some_c.channels_.M1654771411142console_log_______('button')
+            },
+        M1656326576968tell_agent_this___:function(who_what){
+            let aname = who_what.slice(0,32)
+            let what = who_what.slice(32)
+
+            // let channel = 
+            
+        },
+
+        M1655200478482fetchFromIdbToChan:function(word_where){
+            let word = word_where.slice(0,32)
+            let where = word_where.slice(32,64)
+            where = some_c.channels_[where]
+            let res = c.F.WordsRead().get(word);
+            res.onsuccess=()=>{where(res.result)}
+        },
+        M1655043079619callableFromTextCh:function(id){
+            try {
+                var second_id=some_c.maps.M1655115480868rel_text2func_map_[id];
+                
+            } catch (error) {
+                console.log('M1655043079619callableFromTextCh',error)
+            }
+            let text = some_c.function_texts[id]
+            console.log(id,second_id);
+            some_c.callable_classic_functions[second_id]=new Function(text);
+            some_c.gctxt[second_id]=some_c.callable_classic_functions[second_id];//link
+        },
+        M1655034580603calcVecUtilityById:function(id_whereput){//to a specific agent( uf unique to it)
+            let id;
+            let where;
+            let ctxt_to_work_with;
+            let func_to_apply
+            let res=func_to_apply(ctxt_to_work_with)
+            where(res)
+
         },
         M1654771411142console_log_______:console.log,
         M1654845867800alert_channel_____:(m)=>alert(m),
@@ -116,23 +251,125 @@ var some_c={
             let a=a_b_channel.slice(0,32);
             let b=a_b_channel.slice(32,64);
             let chaname=a_b_channel.slice(64,96);
-            let aRelB;//todo ;; B can be a context
+            let right_map=some_c.maps['rel_map'][a]
+            let val = some_c.maps[right_map][b]
+            let aRelB=some_c.gctxt[val];//todo ;; B can be a context
             some_c.channels_[chaname](aRelB);
         },
+        M1655215109700streamingParser___:function(longm){
+            let mock_m=``;
+            let channel=longm.slice(0,32);
+
+            some_c.channels_.M1655215109700streamingParser___();
+
+        },
+        M1655293626323externalAsk_______:function(){
+            // let ...;
+            let mock_gxb_//keep in a desired state
+            //agent wants to keep some external var in a ceertain state, so..
+            //first, they need a way to learn that state.
+            /**
+             * then 
+             */
+            /**
+             * external var descriptor:
+             *  channel_to_get_it 
+             *  or known_state \
+             * onreturn_ 
+             *  
+             */
+
+             /**
+              * Example: one's child's right_arm's middle_finger's nail's color
+              * way_to_get:
+              * generic_algorithm, can ask for more specific ones to get its parts together
+              * 
+              * schedule actions on return (by creating associated callbacks)
+              * reply_channel -> that callback -> trigger recalc for updated context
+              * 
+              * .. missing_way_to_get (default fallback channel - ask user - todo)
+              */
+             //blah_blah .. knowledge keeper agent 
+        },
+        M1655309825632toGetHer__________:function(){
+
+            /*
+            Certain decisions are to be made toGetHer. 
+            
+
+            // decision agent, representing together...
+            */
+           let agent_1
+           let agent_2
+           
+           let utility_vector=['agent_representing_agent_ones_predicted_happiness_x_confidence_x_weight']
+           let me                                                                                                                             //cum and let me go
+           let her;
+           let us_05;
+           let us_list=['me','her']
+           let weights_us={
+            me:0.5,
+            her:0.5,
+           }
+           let her_happiness_function=function(context){
+
+           }
+           let my_happiness_function=function(context){}
+           let us_happiness_function=function(context){
+                let comparator=function(context_a, context_b){
+                    let value_a;
+                    let value_b;
+                    let delta; //true/false answer if first context is better than a second one
+                    return delta;
+
+                }
+           }
+
+
+        },
+        M1655348082518negotiator________:function(){
+            /**\
+             * spawns agents knowing more than previous ones, 
+             * one step closer to low level, until all the agents of interests are simple ones, only rely on simple vars and no other agents
+             * stuff that can be learned 
+             * what your happiness depends upon is unveiled in a few rounds, until all is known.
+             * divide then aggregate
+            \**/
+        },
+        M1655355203249global_uf_bs______:function(){
+            /**\
+            \**/
+            /**\
+             * final agent's weights (importance of others to them)..
+             * base - people.
+             * 
+             * 
+             * 
+            \**/
+            
+        },
+        
         M1654950143782buildCFromDesc____:function(where_descriptor){
             let where=where_descriptor.slice(0,32);
             let rest=where_descriptor.slice(32);
             let cname=rest.slice(0,32);
             rest=rest.slice(32)
             /*
-            
+            chain parser: slice needed-> parse, call, put the rest back to the same channel (or just loop through)
             */
             some_c.ctxts_[cname]={}
             //1 by 1 adding vars to it
  
         },
+        // put_value, call it(text to func to channel to instance) as complex 
+        fixme_chain_1:function(m){
+            m=``
+            put_text
+            try_call_trigger_fallback//
+        },
         M1654944597695ufVar2Another_____:function(one_another_channel){
             //puts the name of utility function to call to get utility of one variable to another one into channel
+            let a_b_channel=one_another_channel//fixme
             let a=a_b_channel.slice(0,32);
             let b=a_b_channel.slice(32,64);
             let chaname=a_b_channel.slice(64,96);
@@ -161,7 +398,12 @@ var some_c={
 
     },
     maps:{
-
+        rel_map:{
+            M1655042683126rel_text2func_____:"M1655115480868rel_text2func_map_",
+        },
+        M1655115480868rel_text2func_map_:{
+                M1654869053819rid_text__________:'M1655042828625rid_callable______',
+            },
     },
     gctxt:{
         M1654771196948current_action____:'M1654771411142console_log_______',

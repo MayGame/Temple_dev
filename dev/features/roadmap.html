@@ -1,0 +1,145 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap</title>
+</head>
+<body>
+    <label for="">Big section</label><select name="" id="select1" >
+        <option value="root" selected>Root</option>
+    </select><button onclick="load_entries()">Load entries for selected sequence</button>
+    <button onclick="back2root()">to root</button>
+    <div id="real1"></div>
+<div id="Mock" style="visibility: visible;">
+<p>Mock interface</p>
+<h3>Roadmap for roadmap:</h3>
+<p>
+    1. Just entries (text`)
+    2. 
+</p>
+
+<p></p>
+</div>
+
+
+<script>
+//#region 
+function load_entries(){
+    let r = select1.value;
+
+    // alert(r);
+    let text=`<ol>`;
+    let c=cc.big_things[r];
+    c.sequence.forEach(e => {
+        
+        text+=`<li>${e}. Desc: ${c.global[e]} <button onclick="ld_rel('${e}')">Load related</button></li>`
+    });
+    text+= `</ol>`;
+    real1.innerHTML=text;
+}
+function ld_rmap(name){
+    let c = cc.big_things[name];
+    let seq = c.sequence
+    let opts = ``;
+    seq.forEach(e=>{
+        console.log(e)
+        // el=c.global[e]
+        el=c.related_roadmaps[e]
+        opts+=`<option value="${el}">${el}</option>`
+    })
+    select1.innerHTML=opts
+}
+function back2root(){
+    ld_rmap('root')
+}
+function ld_rel(e){
+    /**
+     * e - rm or leaf 2 load
+     * if its a leaf ( no rm)
+     * then show related stuff
+     * if its a roadmap 
+     * then load it: 
+     * opts become its steps
+     */
+//     let chosen_agent = e;
+//     let c=cc.big_things[e]
+//     // let r = select1.value;
+//     // let c=cc.big_things[r];
+//     let opts = ``
+//     let e1=`val`
+//     console.log(cc.big_things);
+//     console.log(e,c);
+//     e1=c.sequence[0]
+//     let e2=`Desc`
+//     e2=c.global[e1]
+//     opts+=`<option value="${e1}">${e1}</option>`
+// select1.innerHTML=opts
+ld_rmap(e)
+}
+//#endregion
+var cc={//complex ctxt
+big_things:{
+
+    root:{
+        sequence:['finish_roadmap'],
+        related_roadmaps:{
+            finish_roadmap:'roadmap'
+        },
+        is_end_leaf:{},
+
+        global:{
+            finish_roadmap:`Go finish it`,
+
+        }
+    },
+    roadmap:{
+        sequence:['seq1'],
+        global:{
+            seq1:'rm seq1 desc'
+        },
+        related_roadmaps:{
+            seq1:'seq1'
+        },
+    },
+    seq1:{
+        sequence:['root','roadmap'],
+        global:{
+            root:'root desc',
+            roadmap:'rm desc',
+        },
+        related_roadmaps:{
+            root:'root',
+            roadmap:'roadmap'
+        },
+    }
+},
+generic_client_agent:{//each client has one named the same way. launches stuff
+channels:{},
+functions:{},
+context:{
+    one_representing_user:`mock_individual_agent`
+},
+},
+mock_individual_agent:{//generated, loaded, 
+channels:{
+    talk_here:function(msg){},
+    what_are_yoyr_goals:function(replyHere_){
+activate(c=cc.mock_individual_agent,)
+    },
+},
+functions:{},
+context:{
+    own_stuff:{
+        utility_function:'',
+        goal_set:'',
+
+    },
+
+},
+},
+
+}
+</script>
+</body>
+</html>

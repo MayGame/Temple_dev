@@ -1,0 +1,47 @@
+M1656152679488AddDescription____M1656152994740goalDescriptionOne202cvc
+
+
+description(name)=``
+goals(name)=goalset
+goalset:[]
+
+
+
+variable:
+    state,
+    responsible_agent.. 
+        channel (ask here)
+
+communication way:
+    agent1 wants to learn var's state.. so they 
+        a1 = responsible_agent(var)
+        ch1 = ask_channel(a1)
+        ch1.write request+var
+    that agent receives:
+        option1:
+            from(agent1) -> it gets prepended -> first reply arg
+
+
+    available interfaces...                                       
+        list['particular_gun_instance']
+        classifiers(particulrar_gun_instance)..
+        way to implement...
+
+        ..including internal
+                                                                 
+will_guide:
+    agent, representing ur will:
+        parts
+    Or part of it:
+        want Jess happy:
+
+        Autonomous agent, acting in your stead:
+            has enough knowledge (or gathers it)
+            has actuators 
+
+
+
+
+
+
+
