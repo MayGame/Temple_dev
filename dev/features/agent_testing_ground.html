@@ -1,0 +1,209 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Tests</title>
+</head>
+<body>
+    <button onclick="update_l()">
+        update list 
+    </button>
+    
+    <br>
+<ol id="a_list1">
+
+</ol>
+<h4>Add agent</h4>
+<input type="text" name="" id="name_inp">
+<button onclick="
+name_inp.value
+">Add</button>
+<h4>Blah blah</h4>
+<button onclick="talker_c.actions.chat">Request mem</button>
+<script src="../../js/agent.js"></script>
+<script>
+    //#region 
+    class SuperAgent{
+
+    }
+    class Agent{//simplify to neurons when possible
+        static _s_build_iface(
+            c,
+            text_getter,
+            text_setter,
+            c_to_proxy,
+            rest_params
+        ){
+            let setter = new Function('o','k','v',text_setter)
+            let getter = new Function('o','k',text_getter)
+            let handler = {
+                set:setter,
+                get:getter
+            }
+            return new Proxy(c[c_to_proxy],handler)
+        }
+        build_iface(
+            text_getter,
+            text_setter,
+            c_to_proxy,
+            cname='c',
+            rest_params
+        ){
+            var c=this.interfaces[cname];
+            let setter =(new Function('o','k','v',text_setter)).bind(c)
+
+            // let getter = new Function('o','k',text_getter)
+            let getter = new Function('o','k',text_getter).bind(c)
+            let handler = {
+                set:setter,
+                get:getter
+            }
+            return new Proxy(c[c_to_proxy],handler)// c - same as context, iface beneath
+        }
+        
+    constructor(params){
+        //#region 
+        params=params||{}
+        this.name=params.name||'anon';
+        this.meta={
+            about:''
+        }
+        this.actions=params.actions||{}
+        this.knowledge_base=params.knowledge_base||params.global_c||params.g||{
+        }
+        this.context=params.context||{
+
+        }
+        // this.global_c=params.global_c||{}
+        //#endregion
+        this.context['_']={}
+        this.context.self=this.context
+        this.context._.c=this.context
+        this.context._.g=this.knowledge_base
+        this.context._.agent_unsafe_root=this;
+        this.memory=params.memory||{}
+        this.interfaces={//proxy context
+            c:this.context,
+            e:console.log(this.context),
+            // i:console.log(this.interfaces),
+        }
+        this.interfaces.cb_proxy=this.build_iface(`let getter; console.log(this._); return 'c'; `,`let setter; o,k,v`,'self'),
+        // this.interfaces.two_proxy=Agent._s_build_iface(this.interfaces.c,`let getter;return  2;`,`let setter;o;k;v;`,'c',''),
+        this.interfaces.one=this.build_iface(`console.log('one',k);return this[k];`,'','self','c')//inner
+        this.interfaces.two=this.build_iface(`console.log('two',k);return this[k];`,'','self','one')//outer
+        // this.interfaces.two_proxy=this.build_iface(`let getter;return  2;`,`let setter;o;k;v;`,'one'),
+       if(params.init_interfaces)
+        { Object.entries(params.init_interfaces).forEach(iface => {
+            let k = iface[0];
+            let v = iface[1];
+            console.log("iface creating",k,v);
+            this.interfaces[k]=this.build_iface(...v)
+        });
+    }
+        this.channels={
+            log:e=>console.log(this.name+"'s log:",e),
+
+        }
+        if(this.actions.oncreate){
+        this.actions.oncreate(this)
+    }
+    else{
+        console.log('Agent created: ',this.name)
+    }
+    }
+    
+    // a_b_resolve(a,b,cname);
+    // a_b_resolve_async(a,b,cname);
+    // kb_sync;//
+    // add_channel(text){
+
+    // }
+    // 
+
+}
+var w_c={//window's context
+agents:['mem_guy']
+}
+//#endregion
+var talker_c={
+
+}
+var id_manager=new Agent(//has56 mem, remembers keys
+{
+    name:"key_master",
+     
+}
+)
+var talker_guy=new Agent({//common interface to other agents
+name:'talker_guy',
+context:talker_c
+})
+var agent_manager_guy=new Agent(
+    //spawns agents from their params names,
+    //e.g. name, iface names...
+    //MJ descriptor:
+    //3
+    {
+        name:'Manager_san',
+        actions:{
+
+        },
+        init_interfaces:{
+            three:[`console.log('three',k);return this[k]+this._.agent_unsafe_root.interfaces.one[k];`,'','self','two']
+        }
+    }
+)
+// JSON.
+var mem_guy=new Agent({name:'Mem guy',
+actions:{
+    oncreate:(instance)=>{
+        console.log('meme',instance.name)
+    },
+
+    // console.log(window[name]);
+    
+    // window[name].channels.log('pong')
+},
+init_interfaces:{
+        localStorage:[`return JSON.parse(localStorage.getItem(k));`,`localStorage.setItem(k,JSON.stringify(v));`,'self'],
+    }
+}   
+)
+
+function update_l(){
+    var text=''
+        w_c.agents.forEach(a=>{
+            // text+='<li>'+a+'<button onclick=&quoteping('+'</button>'+'</li>'
+            text+=`<li>${a}<button onclick="ping(${a})">ping</button></li>`
+        })
+        a_list1.innerHTML=text;
+
+}
+function ping(agent){
+    agent.channels.log('pong')
+}
+
+var utility_guy=new Agent(
+    {
+        name:'utility_guy',
+        actions:{
+
+        }
+    }
+)
+var render_guy=new Agent({name:'Rendier',channels:{
+    MJ_:function(msg){
+
+    }
+}})
+var parser_guy=new Agent({name:"Parsifal"})
+var empathetic
+var person_caring=new Agent({
+name:'Temple',
+channels:{},
+
+})
+</script>  
+</body>
+</html>

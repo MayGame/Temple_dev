@@ -4,9 +4,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MayJessty Temple</title>
-</head>le>MayJessty Temple</title>
+</head>MayJessty Temple</title>
 </head>
 <body>
+<script>
+        if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('asw.js').then(function(registration) {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          // registration failed :(
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+    else alert("No support for service worker. Sadly")
+</script>
 <h3></h3>
 <select name="" id=""></select>
 <button onclick="connect()">Connect</button><br>

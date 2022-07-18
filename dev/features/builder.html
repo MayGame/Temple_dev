@@ -40,6 +40,7 @@ function collect_params1(){
     let builder = builder1.value
     // let builder = builder1.value
 }
+
 var active_builder='t1_fixed_builder_agent';
 var builders=[]
 var main_c={
@@ -77,6 +78,58 @@ var t1_fixed_builder_agent={
 
     }
 }
+class Builder{
+    constructor (){
+        console.log("Builder constructor");
+    }
+    static build(c,){
+        console.log("build");
+        return new Builder()
+    }
+}
+class Agent{//simplify to neurons when possible
+    constructor(params){
+        this.name=params.name;
+        this.meta={
+            about:''
+        }
+        this.actions={
+
+        }
+        this.knowledge_base={
+
+        }
+        this.interfaces={
+
+        }
+        this.channels={
+            log:e=>console.log(this.name+"'s log:",e)
+        }
+    }
+    a_b_resolve;
+    kb_sync;//
+    
+    // 
+
+}
+//#region 
+var mem_s_agent_c={
+
+}
+var syncing_mem_agent=new Agent(
+    
+    )
+//#endregion 
+//#region test agent brainstorm
+let a = new Agent()
+// a.actions.
+let mem_agent
+let sc=mem_agent.actions.provide_internally_connected_representation
+mem_agent.store
+let task_bound_agent;//
+let predicting_agent;
+
+//#endregion 
 </script>
 </body>
 </html>
