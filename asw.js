@@ -63,7 +63,7 @@ self.addEventListener('install', function(event) {
 //#region activate
 self.addEventListener('activate', (event) => {
     event.waitUntil(async function(){console.log("activating sw")})})
-    
+
 // self.addEventListener('activate', (event) => {
 //     event.waitUntil(async function() {
 //       const cacheNames = await caches.keys();
@@ -152,13 +152,30 @@ self.addEventListener('activate', (event) => {
 // });
 //#endregion 
 //#region agent
-let mockSuperAgent = new Agent({
+// let swSuperAgent = new SuperAgent({
 
-})
+// })
+let mock_swSuperAgent={
+    dynamicInterfaces:{//name resolves to the one in use right now 
+        pages:new Proxy({},{
+            get:function(_,k){
+                return undefined
+            }
+        })
+        // pages:{
+        //     "":""
+        // }
+        // pages:mock_swSuperAgent.interfaces
+
+
+    }
+}
  self.addEventListener('fetch',(event) => {
     let rurl = event.request.url
-    event.respondWith(caches.match(event.request,{'ignoreSearch':true}));
-
+    // event.respondWith(caches.match(event.request,{'ignoreSearch':true}));
+// event.respondWith(mock_swSuperAgent.syncFuncs.get_page_response
+event.respondWith(mock_swSuperAgent.dynamicInterfaces.pages[rurl]
+)
     })
     // c.F.M1631167618982CraftResponse_____=function(event){
     //     let header = c.M1631015695037html_header_______;
