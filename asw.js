@@ -159,7 +159,16 @@ let mock_swSuperAgent={
     dynamicInterfaces:{//name resolves to the one in use right now 
         pages:new Proxy({},{
             get:function(_,k){
-                return undefined
+                k_whitelist={
+                    a:'a_body'
+                }
+                let header={
+                      headers: {'Content-Type': 'text/html'}
+                    }
+                if(k_whitelist[k])
+                return new Response(k_whitelist[k], header);
+                else return undefined
+
             }
         })
         // pages:{
@@ -174,7 +183,9 @@ let mock_swSuperAgent={
     let rurl = event.request.url
     // event.respondWith(caches.match(event.request,{'ignoreSearch':true}));
 // event.respondWith(mock_swSuperAgent.syncFuncs.get_page_response
-event.respondWith(mock_swSuperAgent.dynamicInterfaces.pages[rurl]
+let response=mock_swSuperAgent.dynamicInterfaces.pages[rurl]
+if(response)
+event.respondWith(response
 )
     })
     // c.F.M1631167618982CraftResponse_____=function(event){
