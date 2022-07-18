@@ -25,6 +25,18 @@ self.importScripts("./js/agent.js")
 // // ];
 //#endregion
 //#region install
+self.addEventListener('install', function(event) {
+    // Perform install steps
+    event.waitUntil(
+    //   caches.open(CACHE_NAME)
+    //     .then(function(cache) {
+    //       console.log('Opened cache');
+    //       console.log('me = v0001');
+    //       return cache.addAll(urlsToCache);
+    //     })
+    async function(){console.log("installing");return }
+    );
+  });
 // self.addEventListener('install', function(event) {
 //     // Perform install steps
 //     event.waitUntil(
@@ -36,20 +48,23 @@ self.importScripts("./js/agent.js")
 //         })
 //     );
 //   });
-//   /*self.addEventListener('install', (event) => {
-//     event.waitUntil(async function() {
-//       const cache = await caches.open('mygame-core-v1');
-//       cache.addAll(
-//         // levels 11-20
-//       );
-//       await cache.addAll(
-//         // core assets & levels 1-10
-//       );
-//     }());
-//   });*/
+  /*self.addEventListener('install', (event) => {
+    event.waitUntil(async function() {
+      const cache = await caches.open('mygame-core-v1');
+      cache.addAll(
+        // levels 11-20
+      );
+      await cache.addAll(
+        // core assets & levels 1-10
+      );
+    }());
+  });*/
 //#endregion
 //#region activate
-//self.addEventListener('activate', (event) => {
+self.addEventListener('activate', (event) => {
+    event.waitUntil(async function(){console.log("activating sw")})})
+    
+// self.addEventListener('activate', (event) => {
 //     event.waitUntil(async function() {
 //       const cacheNames = await caches.keys();
 //       await Promise.all(
